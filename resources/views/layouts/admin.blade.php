@@ -35,8 +35,24 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         @show
+
+        <script>
+            try {
+                if (localStorage.getItem('asta_theme') === 'light') {
+                    document.documentElement.classList.add('theme-light');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        </script>
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini">
+        <script>
+            try {
+                if (localStorage.getItem('asta_theme') === 'light') {
+                    document.body.classList.add('theme-light');
+                }
+            } catch (e) {}
+        </script>
         <div class="wrapper">
             <header class="main-header">
                 <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;justify-content:center;gap:8px;">
@@ -57,12 +73,26 @@
                                     <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</span>
                                 </a>
+                            <li>
+                                <a href="javascript:void(0);" id="adminThemeToggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Theme" onclick="
+                                    var next = localStorage.getItem('asta_theme') === 'light' ? 'dark' : 'light';
+                                    localStorage.setItem('asta_theme', next);
+                                    if (next === 'light') {
+                                        document.documentElement.classList.add('theme-light');
+                                        document.documentElement.setAttribute('data-theme', 'light');
+                                        document.body.classList.add('theme-light');
+                                    } else {
+                                        document.documentElement.classList.remove('theme-light');
+                                        document.documentElement.setAttribute('data-theme', 'dark');
+                                        document.body.classList.remove('theme-light');
+                                    }
+                                "><i class="fa fa-adjust"></i></a>
                             </li>
                             <li>
-                                <li><a href="{{ route('index') }}" data-toggle="tooltip" data-placement="bottom" title="Exit Admin Control"><i class="fa fa-server"></i></a></li>
+                                <a href="{{ route('index') }}" data-toggle="tooltip" data-placement="bottom" title="Exit Admin Control"><i class="fa fa-server"></i></a>
                             </li>
                             <li>
-                                <li><a href="{{ route('auth.logout') }}" id="logoutButton" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fa fa-sign-out"></i></a></li>
+                                <a href="{{ route('auth.logout') }}" id="logoutButton" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fa fa-sign-out"></i></a>
                             </li>
                         </ul>
                     </div>

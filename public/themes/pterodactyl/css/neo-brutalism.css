@@ -74,14 +74,28 @@ html.theme-light body::before, body.theme-light::before {
     url('/assets/astabrand.png') !important;
 }
 
+/* Light Mode Surfaces: Cover both neutral-* and gray-* and arbitrary hex */
+html.theme-light .bg-gray-900,
+html.theme-light .bg-gray-800,
+html.theme-light .bg-gray-700,
+html.theme-light .bg-gray-600,
 html.theme-light .bg-neutral-900,
 html.theme-light .bg-neutral-800,
 html.theme-light .bg-neutral-700,
+html.theme-light .bg-neutral-600,
 html.theme-light .bg-\[\#161B22\],
 html.theme-light .bg-\[\#0D1117\],
+html.theme-light .bg-\[\#21262D\],
 html.theme-light [class*="NavigationBar"] {
   background-color: #FFFFFF !important;
-  border-bottom: 2.5px solid #000000 !important;
+  border-color: #000000 !important;
+}
+
+html.theme-light .hover\:bg-gray-600:hover,
+html.theme-light .hover\:bg-gray-700:hover,
+html.theme-light .hover\:bg-neutral-600:hover,
+html.theme-light .hover\:bg-neutral-700:hover {
+  background-color: #F1F5F9 !important;
 }
 
 html.theme-light #logo a span,
@@ -106,38 +120,68 @@ html.theme-light [class*="RightNavigation"] a.active {
   box-shadow: inset 0 -3px #000000 !important;
 }
 
+/* Light Mode Typography Inversions */
+html.theme-light .text-gray-50,
+html.theme-light .text-gray-100,
+html.theme-light .text-neutral-50,
 html.theme-light .text-neutral-100,
-html.theme-light .text-neutral-200,
-html.theme-light .text-white {
+html.theme-light .text-white,
+html.theme-light h1,
+html.theme-light h2,
+html.theme-light h3,
+html.theme-light h4 {
   color: #0B0F17 !important;
 }
 
-html.theme-light .text-neutral-300,
-html.theme-light .text-neutral-400 {
-  color: #334155 !important;
+html.theme-light .text-gray-200,
+html.theme-light .text-gray-300,
+html.theme-light .text-neutral-200,
+html.theme-light .text-neutral-300 {
+  color: #1E293B !important;
 }
 
+html.theme-light .text-gray-400,
+html.theme-light .text-neutral-400 {
+  color: #475569 !important;
+}
+
+html.theme-light .text-gray-500,
 html.theme-light .text-neutral-500 {
   color: #64748B !important;
 }
 
+/* Light Mode Borders */
+html.theme-light .border-gray-900,
+html.theme-light .border-gray-800,
+html.theme-light .border-gray-700,
+html.theme-light .border-gray-600,
+html.theme-light .border-neutral-900,
 html.theme-light .border-neutral-800,
 html.theme-light .border-neutral-700,
-html.theme-light .border-neutral-600 {
+html.theme-light .border-neutral-600,
+html.theme-light .border-black {
   border-color: #000000 !important;
 }
 
+/* Light Mode Cards, Rows & Component Blocks */
 html.theme-light .server-row,
 html.theme-light [class*="StatusIndicatorBox"],
-html.theme-light [class*="GreyRowBox"] {
+html.theme-light [class*="GreyRowBox"],
+html.theme-light [class*="TitledGreyBox"],
+html.theme-light [class*="ContentBox"],
+html.theme-light [class*="stat_block"],
+html.theme-light [class*="StatBlock"],
+html.theme-light [class*="FileManagerStatus"] > div,
+html.theme-light [class*="MassActionsBar"] {
   background-color: #FFFFFF !important;
   color: #0B0F17 !important;
-  border-color: #000000 !important;
+  border: 2.5px solid #000000 !important;
   box-shadow: 4px 4px 0px #000000 !important;
 }
 
 html.theme-light [class*="GreyRowBox"]:hover {
   background-color: #F8FAFC !important;
+  box-shadow: 6px 6px 0px #000000 !important;
 }
 
 html.theme-light [class*="GreyRowBox"] p,
@@ -145,14 +189,18 @@ html.theme-light [class*="StatusIndicatorBox"] p {
   color: #0B0F17 !important;
 }
 
-html.theme-light [class*="GreyRowBox"] .icon {
+html.theme-light [class*="GreyRowBox"] .icon,
+html.theme-light [class*="stat_block"] [class*="icon"],
+html.theme-light [class*="TitledGreyBox"] > div:first-child {
   background-color: #E2E8F0 !important;
   color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
 }
 
 html.theme-light [class*="SubNavigation"] {
   background-color: #FFFFFF !important;
   border-bottom: 2.5px solid #000000 !important;
+  box-shadow: 0 4px 0 #000000 !important;
 }
 
 html.theme-light [class*="SubNavigation"] a {
@@ -162,19 +210,14 @@ html.theme-light [class*="SubNavigation"] a {
 html.theme-light [class*="SubNavigation"] a:hover {
   color: #000000 !important;
   background-color: #E2E8F0 !important;
+  border-color: #000000 !important;
 }
 
 html.theme-light [class*="SubNavigation"] a.active {
   color: #000000 !important;
   background-color: #00D2FF !important;
-  box-shadow: inset 0 -3px #000000 !important;
-}
-
-html.theme-light [class*="stat_block"] {
-  background-color: #FFFFFF !important;
-  color: #0B0F17 !important;
-  border-color: #000000 !important;
-  box-shadow: 4px 4px 0px #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
 }
 
 html.theme-light [class*="stat_block"] p {
@@ -185,20 +228,30 @@ html.theme-light [class*="stat_block"] div {
   color: #0B0F17 !important;
 }
 
+/* Modals & Dialogs */
 html.theme-light [role="dialog"],
-html.theme-light .dialog-content {
+html.theme-light .dialog-content,
+html.theme-light [class*="DialogContent"],
+html.theme-light [class*="ConfirmationModal"] {
   background-color: #FFFFFF !important;
   color: #0B0F17 !important;
   border: 2.5px solid #000000 !important;
   box-shadow: 6px 6px 0px #000000 !important;
 }
 
+html.theme-light [class*="DialogFooter"] {
+  background-color: #F1F5F9 !important;
+  border-top: 2px solid #000000 !important;
+}
+
+/* Inputs & Form Controls */
 html.theme-light input:not([type="checkbox"]):not([type="radio"]),
 html.theme-light select,
 html.theme-light textarea {
   background-color: #FFFFFF !important;
   color: #0B0F17 !important;
   border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
 }
 
 html.theme-light input:focus,
@@ -206,6 +259,25 @@ html.theme-light select:focus,
 html.theme-light textarea:focus {
   border-color: #00D2FF !important;
   box-shadow: 3px 3px 0px #000000 !important;
+}
+
+/* Buttons */
+html.theme-light button.btn-secondary,
+html.theme-light .btn-secondary,
+html.theme-light button[class*="Button"]:not([class*="btn-primary"]):not([class*="btn-danger"]):not([class*="btn-success"]) {
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+}
+
+/* Console & CodeMirror Sharp Brutalist Frame */
+html.theme-light .CodeMirror,
+html.theme-light .xterm,
+html.theme-light [class*="Terminal"] {
+  border: 2.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  border-radius: 6px !important;
 }
 
 html.theme-light .box {

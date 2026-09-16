@@ -56,6 +56,19 @@ const App = () => {
         store.getActions().settings.setSettings(SiteConfiguration!);
     }
 
+    React.useEffect(() => {
+        const theme = localStorage.getItem('asta_theme') || 'dark';
+        if (theme === 'light') {
+            document.documentElement.classList.add('theme-light');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.body.classList.add('theme-light');
+        } else {
+            document.documentElement.classList.remove('theme-light');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.body.classList.remove('theme-light');
+        }
+    }, []);
+
     return (
         <>
             <GlobalStylesheet />

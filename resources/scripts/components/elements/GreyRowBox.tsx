@@ -2,8 +2,9 @@ import styled from 'styled-components/macro';
 import tw from 'twin.macro';
 
 export default styled.div<{ $hoverable?: boolean }>`
-    ${tw`flex rounded-md no-underline text-neutral-200 items-center p-4 overflow-hidden`};
-    background-color: #161B22;
+    ${tw`flex rounded-md no-underline items-center p-4 overflow-hidden`};
+    background-color: var(--neo-surface);
+    color: var(--neo-text);
     border: 2.5px solid #000000;
     box-shadow: 4px 4px 0px #000000;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
@@ -25,7 +26,8 @@ export default styled.div<{ $hoverable?: boolean }>`
 
     & .icon {
         ${tw`w-14 h-14 flex items-center justify-center p-3 text-lg`};
-        background-color: #21262D;
+        background-color: var(--neo-surface-light);
+        color: var(--neo-text);
         border: 2px solid #000000;
         box-shadow: 2px 2px 0px #000000;
         border-radius: 6px;

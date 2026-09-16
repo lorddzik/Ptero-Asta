@@ -2,7 +2,8 @@ import styled from 'styled-components/macro';
 import tw, { theme } from 'twin.macro';
 
 const SubNavigation = styled.div`
-    ${tw`w-full bg-[#161B22] border-b-[2.5px] border-black overflow-x-auto`};
+    ${tw`w-full border-b-[2.5px] border-black overflow-x-auto`};
+    background-color: var(--neo-surface);
 
     & > div {
         ${tw`flex items-center text-sm mx-auto px-4 py-2 gap-2`};
@@ -10,11 +11,13 @@ const SubNavigation = styled.div`
 
         & > a,
         & > div {
-            ${tw`inline-block py-1.5 px-3 text-neutral-300 no-underline whitespace-nowrap font-bold transition-all duration-100 rounded`};
+            ${tw`inline-block py-1.5 px-3 no-underline whitespace-nowrap font-bold transition-all duration-100 rounded`};
+            color: var(--neo-text-muted);
             border: 2px solid transparent;
 
             &:hover {
-                ${tw`text-white bg-[#21262D]`};
+                color: var(--neo-text);
+                background-color: var(--neo-surface-light);
                 border-color: #000000;
             }
 
