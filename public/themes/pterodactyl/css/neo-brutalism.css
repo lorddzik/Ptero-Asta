@@ -1243,9 +1243,9 @@ html.theme-light p.font-mono, html.theme-light pre {
   padding: 16px 24px !important;
 }
 
-/* Admin Form Controls */
+/* Admin Form Controls & Selects */
 .form-group {
-  margin-bottom: 18px !important;
+  margin-bottom: 20px !important;
 }
 
 .form-group label,
@@ -1256,7 +1256,7 @@ label.control-label {
   text-transform: uppercase !important;
   font-size: 12px !important;
   letter-spacing: 0.04em !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
   display: inline-block !important;
 }
 
@@ -1271,7 +1271,25 @@ select.form-control,
   border-radius: 4px !important;
   padding: 8px 12px !important;
   height: auto !important;
+  min-height: 38px !important;
+  line-height: 1.5 !important;
   transition: all 0.1s ease !important;
+}
+
+select.form-control {
+  cursor: pointer !important;
+}
+
+select.form-control option {
+  background-color: var(--neo-surface) !important;
+  color: var(--neo-text) !important;
+  padding: 8px 12px !important;
+}
+
+select.form-control option:checked,
+select.form-control option:hover {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
 }
 
 input.form-control:focus,
@@ -1290,16 +1308,126 @@ select.form-control:focus,
   opacity: 0.8 !important;
 }
 
+.input-group .input-group-addon {
+  background-color: var(--neo-surface-light) !important;
+  color: var(--neo-text) !important;
+  border: 2px solid #000000 !important;
+  font-weight: 800 !important;
+}
+
 p.text-muted,
 .small.text-muted,
 .text-muted {
   color: var(--neo-text-muted) !important;
-  margin-top: 4px !important;
+  margin-top: 6px !important;
   font-size: 12px !important;
+  line-height: 1.5 !important;
 }
 
 .text-danger {
   color: var(--asta-red) !important;
+}
+
+/* Admin Nav Tabs (.nav-tabs-custom & .nav-tabs) */
+.nav-tabs-custom {
+  background-color: var(--neo-surface) !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  border-radius: 6px !important;
+  margin-bottom: 24px !important;
+  overflow: hidden !important;
+}
+
+.nav-tabs-custom.nav-tabs-floating {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-bottom: 20px !important;
+}
+
+.nav-tabs-custom > .nav-tabs,
+.nav-tabs {
+  border-bottom: 2.5px solid #000000 !important;
+  background-color: var(--neo-surface-light) !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.nav-tabs-custom.nav-tabs-floating > .nav-tabs {
+  border-bottom: 0px !important;
+  background: transparent !important;
+  gap: 8px !important;
+}
+
+.nav-tabs > li {
+  margin-bottom: 0 !important;
+}
+
+.nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a {
+  color: var(--neo-text) !important;
+  background-color: var(--neo-surface) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  border-radius: 4px !important;
+  margin-right: 6px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  padding: 8px 18px !important;
+  transition: all 0.1s ease !important;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  background-color: var(--neo-surface-hover) !important;
+  color: var(--asta-cyan) !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active:hover > a {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  font-weight: 900 !important;
+  border-top-color: #000000 !important;
+  border-bottom-color: #000000 !important;
+}
+
+.nav-tabs-custom > .tab-content {
+  background-color: var(--neo-surface) !important;
+  color: var(--neo-text) !important;
+  padding: 20px !important;
+}
+
+/* Admin Footer Bar (.main-footer) */
+.main-footer {
+  background-color: var(--neo-surface) !important;
+  color: var(--neo-text-muted) !important;
+  border-top: 2.5px solid #000000 !important;
+  padding: 16px 24px !important;
+  font-size: 13px !important;
+  transition: background-color 0.1s ease !important;
+}
+
+.main-footer a {
+  color: var(--asta-cyan) !important;
+  font-weight: 800 !important;
+}
+
+.main-footer a:hover {
+  color: var(--asta-cyan-dark) !important;
+  text-decoration: underline !important;
+}
+
+.main-footer .text-gray {
+  color: var(--neo-text-muted) !important;
 }
 
 /* Admin Buttons Neo-Brutalist */
@@ -1364,33 +1492,61 @@ p.text-muted,
 /* Select2 In Admin */
 .select2-dropdown {
   background-color: var(--neo-surface) !important;
-  border: 2px solid #000000 !important;
+  border: 2.5px solid #000000 !important;
   box-shadow: 4px 4px 0px #000000 !important;
+  border-radius: 4px !important;
   color: var(--neo-text) !important;
+  z-index: 999999 !important;
 }
 
-.select2-container--default .select2-selection--single {
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
   background-color: var(--neo-surface) !important;
   border: 2px solid #000000 !important;
   box-shadow: 2px 2px 0px #000000 !important;
   border-radius: 4px !important;
-  height: 38px !important;
+  height: auto !important;
+  min-height: 38px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   color: var(--neo-text) !important;
   line-height: 34px !important;
+  padding-left: 10px !important;
+  font-weight: 600 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: var(--neo-text) transparent transparent transparent !important;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent var(--neo-text) transparent !important;
 }
 
 .select2-results__option {
   background-color: var(--neo-surface) !important;
+  color: var(--neo-text) !important;
+  padding: 8px 12px !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: var(--neo-surface-light) !important;
   color: var(--neo-text) !important;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: var(--asta-cyan) !important;
   color: #000000 !important;
-  font-weight: bold !important;
+  font-weight: 800 !important;
+}
+
+.select2-search--dropdown .select2-search__field {
+  background-color: var(--neo-surface-light) !important;
+  border: 1.5px solid #000000 !important;
+  color: var(--neo-text) !important;
+  border-radius: 4px !important;
+  padding: 6px 10px !important;
 }
 
 /* Admin Tables */
@@ -1398,6 +1554,8 @@ p.text-muted,
   border: 2px solid #000000 !important;
   background-color: var(--neo-surface) !important;
   color: var(--neo-text) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
 }
 
 .table > thead > tr > th {
@@ -1405,16 +1563,182 @@ p.text-muted,
   border-bottom: 2px solid #000000 !important;
   color: var(--neo-text) !important;
   font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
 }
 
 .table > tbody > tr > td {
   border-top: 1px solid var(--neo-border-light) !important;
   color: var(--neo-text) !important;
+  vertical-align: middle !important;
 }
 
 .table-hover > tbody > tr:hover {
   background-color: var(--neo-surface-hover) !important;
 }
+
+/* Admin Alerts & Callouts */
+.alert,
+.callout {
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
+}
+
+.alert-info,
+.callout-info {
+  background-color: var(--neo-surface-light) !important;
+  border-left: 6px solid var(--asta-cyan) !important;
+  color: var(--neo-text) !important;
+}
+
+.alert-success,
+.callout-success {
+  background-color: var(--neo-surface-light) !important;
+  border-left: 6px solid var(--asta-green) !important;
+  color: var(--neo-text) !important;
+}
+
+.alert-warning,
+.callout-warning {
+  background-color: var(--neo-surface-light) !important;
+  border-left: 6px solid var(--asta-yellow) !important;
+  color: var(--neo-text) !important;
+}
+
+.alert-danger,
+.callout-danger {
+  background-color: var(--neo-surface-light) !important;
+  border-left: 6px solid var(--asta-red) !important;
+  color: var(--neo-text) !important;
+}
+
+/* Admin Wells */
+.well {
+  background-color: var(--neo-surface-light) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  border-radius: 6px !important;
+  color: var(--neo-text) !important;
+}
+
+/* Admin Labels & Badges */
+.label,
+.badge {
+  border: 1px solid #000000 !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  border-radius: 3px !important;
+  padding: 3px 8px !important;
+}
+
+.label-default {
+  background-color: var(--neo-surface-light) !important;
+  color: var(--neo-text) !important;
+}
+
+.label-primary {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+}
+
+.label-success {
+  background-color: var(--asta-green) !important;
+  color: #000000 !important;
+}
+
+.label-warning {
+  background-color: var(--asta-yellow) !important;
+  color: #000000 !important;
+}
+
+.label-danger {
+  background-color: var(--asta-red) !important;
+  color: #FFFFFF !important;
+}
+
+/* SweetAlert Dialog */
+.sweet-alert {
+  background-color: var(--neo-surface) !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+  border-radius: 8px !important;
+  color: var(--neo-text) !important;
+}
+
+.sweet-alert h2,
+.sweet-alert p {
+  color: var(--neo-text) !important;
+}
+
+/* Admin Dashboard Small Boxes & Info Boxes */
+.small-box,
+.info-box {
+  background-color: var(--neo-surface) !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  border-radius: 6px !important;
+  color: var(--neo-text) !important;
+  overflow: hidden !important;
+}
+
+.small-box .inner h3,
+.small-box .inner p,
+.info-box-text,
+.info-box-number {
+  color: var(--neo-text) !important;
+}
+
+.small-box-footer {
+  background-color: var(--neo-surface-light) !important;
+  border-top: 1.5px solid #000000 !important;
+  color: var(--asta-cyan) !important;
+  font-weight: 800 !important;
+  padding: 6px 0 !important;
+  transition: all 0.1s ease !important;
+}
+
+.small-box-footer:hover {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+}
+
+/* Admin Checkboxes & Radios */
+.checkbox label,
+.radio label {
+  color: var(--neo-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Admin Breadcrumbs */
+.breadcrumb {
+  background-color: transparent !important;
+}
+
+.breadcrumb > li,
+.breadcrumb > li > a {
+  color: var(--neo-text-muted) !important;
+}
+
+.breadcrumb > .active {
+  color: var(--asta-cyan) !important;
+  font-weight: 800 !important;
+}
+
+/* Admin Pre & Code */
+pre {
+  background-color: var(--neo-surface-light) !important;
+  color: var(--neo-text) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  border-radius: 4px !important;
+  padding: 12px 16px !important;
+}
+
 
 
 
