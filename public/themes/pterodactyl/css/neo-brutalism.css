@@ -43,6 +43,250 @@
   --neo-radius-pill: 9999px;
 }
 
+/* Light Theme Tokens */
+:root[data-theme="light"], html.theme-light, body.theme-light {
+  --neo-bg: #F0F4F8;
+  --neo-surface: #FFFFFF;
+  --neo-surface-light: #E2E8F0;
+  --neo-surface-hover: #F1F5F9;
+
+  --neo-border-color: #000000;
+  --neo-border-width: 2.5px;
+  --neo-border-light: #CBD5E1;
+  --neo-shadow: 4px 4px 0px #000000;
+  --neo-shadow-sm: 2px 2px 0px #000000;
+  --neo-shadow-lg: 6px 6px 0px #000000;
+
+  --neo-text: #0B0F17;
+  --neo-text-muted: #475569;
+  --neo-text-dark: #0B0F17;
+}
+
+/* Light Mode Overrides */
+html.theme-light body, body.theme-light {
+  background-color: #F0F4F8 !important;
+  color: #0B0F17 !important;
+}
+
+html.theme-light body::before, body.theme-light::before {
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(240, 244, 248, 0.85) 0%, rgba(240, 244, 248, 0.96) 85%),
+    url('/assets/astabrand.png') !important;
+}
+
+html.theme-light .bg-neutral-900,
+html.theme-light .bg-neutral-800,
+html.theme-light .bg-neutral-700,
+html.theme-light .bg-\[\#161B22\],
+html.theme-light .bg-\[\#0D1117\],
+html.theme-light [class*="NavigationBar"] {
+  background-color: #FFFFFF !important;
+  border-bottom: 2.5px solid #000000 !important;
+}
+
+html.theme-light #logo a span,
+html.theme-light #logo span {
+  color: #000000 !important;
+}
+
+html.theme-light [class*="RightNavigation"] a,
+html.theme-light [class*="RightNavigation"] button {
+  color: #1E293B !important;
+}
+
+html.theme-light [class*="RightNavigation"] a:hover,
+html.theme-light [class*="RightNavigation"] button:hover {
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
+}
+
+html.theme-light [class*="RightNavigation"] a.active {
+  color: #000000 !important;
+  background-color: #00D2FF !important;
+  box-shadow: inset 0 -3px #000000 !important;
+}
+
+html.theme-light .text-neutral-100,
+html.theme-light .text-neutral-200,
+html.theme-light .text-white {
+  color: #0B0F17 !important;
+}
+
+html.theme-light .text-neutral-300,
+html.theme-light .text-neutral-400 {
+  color: #334155 !important;
+}
+
+html.theme-light .text-neutral-500 {
+  color: #64748B !important;
+}
+
+html.theme-light .border-neutral-800,
+html.theme-light .border-neutral-700,
+html.theme-light .border-neutral-600 {
+  border-color: #000000 !important;
+}
+
+html.theme-light .server-row,
+html.theme-light [class*="StatusIndicatorBox"],
+html.theme-light [class*="GreyRowBox"] {
+  background-color: #FFFFFF !important;
+  color: #0B0F17 !important;
+  border-color: #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+html.theme-light [class*="GreyRowBox"]:hover {
+  background-color: #F8FAFC !important;
+}
+
+html.theme-light [class*="GreyRowBox"] p,
+html.theme-light [class*="StatusIndicatorBox"] p {
+  color: #0B0F17 !important;
+}
+
+html.theme-light [class*="GreyRowBox"] .icon {
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
+}
+
+html.theme-light [class*="SubNavigation"] {
+  background-color: #FFFFFF !important;
+  border-bottom: 2.5px solid #000000 !important;
+}
+
+html.theme-light [class*="SubNavigation"] a {
+  color: #475569 !important;
+}
+
+html.theme-light [class*="SubNavigation"] a:hover {
+  color: #000000 !important;
+  background-color: #E2E8F0 !important;
+}
+
+html.theme-light [class*="SubNavigation"] a.active {
+  color: #000000 !important;
+  background-color: #00D2FF !important;
+  box-shadow: inset 0 -3px #000000 !important;
+}
+
+html.theme-light [class*="stat_block"] {
+  background-color: #FFFFFF !important;
+  color: #0B0F17 !important;
+  border-color: #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+html.theme-light [class*="stat_block"] p {
+  color: #475569 !important;
+}
+
+html.theme-light [class*="stat_block"] div {
+  color: #0B0F17 !important;
+}
+
+html.theme-light [role="dialog"],
+html.theme-light .dialog-content {
+  background-color: #FFFFFF !important;
+  color: #0B0F17 !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 6px 6px 0px #000000 !important;
+}
+
+html.theme-light input:not([type="checkbox"]):not([type="radio"]),
+html.theme-light select,
+html.theme-light textarea {
+  background-color: #FFFFFF !important;
+  color: #0B0F17 !important;
+  border: 2px solid #000000 !important;
+}
+
+html.theme-light input:focus,
+html.theme-light select:focus,
+html.theme-light textarea:focus {
+  border-color: #00D2FF !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+}
+
+html.theme-light .box {
+  background-color: #FFFFFF !important;
+  color: #0B0F17 !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+html.theme-light .box-header {
+  border-bottom: 2px solid #000000 !important;
+  background-color: #FFFFFF !important;
+}
+
+html.theme-light .box-header .box-title {
+  color: #000000 !important;
+}
+
+html.theme-light .box-body {
+  color: #0B0F17 !important;
+}
+
+html.theme-light .table > thead > tr > th {
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+html.theme-light .table > tbody > tr > td {
+  border-top: 1px solid #CBD5E1 !important;
+  color: #0B0F17 !important;
+}
+
+html.theme-light .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #F8FAFC !important;
+}
+
+html.theme-light .main-sidebar,
+html.theme-light .left-side {
+  background-color: #FFFFFF !important;
+  border-right: 2.5px solid #000000 !important;
+}
+
+html.theme-light .skin-blue .main-header .navbar {
+  background-color: #FFFFFF !important;
+  border-bottom: 2.5px solid #000000 !important;
+}
+
+html.theme-light .skin-blue .main-header .logo {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border-bottom: 2.5px solid #000000 !important;
+  border-right: 2.5px solid #000000 !important;
+}
+
+html.theme-light .skin-blue .sidebar-menu > li.header {
+  background: #E2E8F0 !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+html.theme-light .skin-blue .sidebar-menu > li > a {
+  color: #334155 !important;
+}
+
+html.theme-light .skin-blue .sidebar-menu > li:hover > a,
+html.theme-light .skin-blue .sidebar-menu > li.active > a {
+  background-color: #F1F5F9 !important;
+  color: #000000 !important;
+  border-left: 4px solid #00D2FF !important;
+}
+
+html.theme-light .content-wrapper,
+html.theme-light .right-side {
+  background-color: #F0F4F8 !important;
+}
+
+html.theme-light .content-header > h1 {
+  color: #0B0F17 !important;
+}
+
 /* ==========================================================================
    Global Base & Typography
    ========================================================================== */
@@ -52,6 +296,26 @@ html, body {
   font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   letter-spacing: 0.015em;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Background Brand Asta: 1:1 Responsive ke Semua Device */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -999 !important;
+  pointer-events: none !important;
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(13, 17, 23, 0.78) 0%, rgba(13, 17, 23, 0.94) 85%),
+    url('/assets/astabrand.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
 }
 
 ::selection {

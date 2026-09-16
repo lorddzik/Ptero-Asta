@@ -18,6 +18,36 @@ export default createGlobalStyle`
         color: #FFFFFF !important;
         font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         letter-spacing: 0.015em;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    html.theme-light body, body.theme-light {
+        background-color: #F0F4F8 !important;
+        color: #0B0F17 !important;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -999;
+        pointer-events: none;
+        background-image: 
+            radial-gradient(circle at 50% 45%, rgba(13, 17, 23, 0.78) 0%, rgba(13, 17, 23, 0.94) 85%),
+            url('/assets/astabrand.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    html.theme-light body::before, body.theme-light::before {
+        background-image: 
+            radial-gradient(circle at 50% 45%, rgba(240, 244, 248, 0.88) 0%, rgba(240, 244, 248, 0.97) 85%),
+            url('/assets/astabrand.png') !important;
     }
 
     ::selection {

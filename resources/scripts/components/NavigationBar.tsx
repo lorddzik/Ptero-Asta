@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCogs, faLayerGroup, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCogs, faLayerGroup, faSignOutAlt, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import SearchContainer from '@/components/dashboard/search/SearchContainer';
-import tw, { theme } from 'twin.macro';
+import tw from 'twin.macro';
 import styled from 'styled-components/macro';
 import http from '@/api/http';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
@@ -38,6 +38,30 @@ export default () => {
     const name = useStoreState((state: ApplicationStore) => state.settings.data!.name);
     const rootAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
     const [isLoggingOut, setIsLoggingOut] = useState(false);
+    const [currentTheme, setCurrentTheme] = useState<'dark' | 'light'>(() => {
+        if (typeof window !== 'undefined') {
+            return (localStorage.getItem('asta_theme') as 'dark' | 'light') || 'dark';
+        }
+        return 'dark';
+    });
+
+    React.useEffect(() => {
+        if (currentTheme === 'light') {
+            document.documentElement.classList.add('theme-light');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.body.classList.add('theme-light');
+        } else {
+            document.documentElement.classList.remove('theme-light');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.body.classList.remove('theme-light');
+        }
+    }, [currentTheme]);
+
+    const toggleTheme = () => {
+        const next = currentTheme === 'dark' ? 'light' : 'dark';
+        setCurrentTheme(next);
+        localStorage.setItem('asta_theme', next);
+    };
 
     const onTriggerLogout = () => {
         setIsLoggingOut(true);
@@ -59,10 +83,10 @@ export default () => {
                         }
                     >
                         <img
-                            src={'/assets/svgs/pterodactyl.svg'}
+                            src={'/assets/astabrand.png'}
                             alt={'Asta'}
-                            className={'w-8 h-8 mr-3 object-contain'}
-                            style={{ filter: 'drop-shadow(2px 2px 0px #000000)' }}
+                            className={'w-8 h-8 mr-3 object-cover rounded-full border-[1.5px] border-black'}
+                            style={{ objectPosition: '50% 25%', filter: 'drop-shadow(2px 2px 0px #000000)' }}
                         />
                         <span className={'text-xl font-header font-black tracking-wider uppercase text-white group-hover:text-[#00D2FF] transition-colors duration-100'}>
                             {name || 'Asta Panel'}
@@ -83,6 +107,11 @@ export default () => {
                             </a>
                         </Tooltip>
                     )}
+                    <Tooltip placement={'bottom'} content={currentTheme === 'dark' ? 'Light Mode' : 'Dark Mode'}>
+                        <button onClick={toggleTheme} aria-label={'Toggle Theme'}>
+                            <FontAwesomeIcon icon={currentTheme === 'dark' ? faSun : faMoon} />
+                        </button>
+                    </Tooltip>
                     <Tooltip placement={'bottom'} content={'Account Settings'}>
                         <NavLink to={'/account'}>
                             <span className={'flex items-center w-5 h-5'}>

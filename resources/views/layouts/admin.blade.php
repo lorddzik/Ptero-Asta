@@ -40,7 +40,7 @@
         <div class="wrapper">
             <header class="main-header">
                 <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;justify-content:center;gap:8px;">
-                    <img src="/assets/svgs/pterodactyl.svg" alt="Asta" style="height:28px;width:28px;object-fit:contain;vertical-align:middle;">
+                    <img src="/assets/svgs/asta.svg" alt="Asta" style="height:30px;width:30px;object-fit:cover;object-position:50% 25%;border-radius:50%;border:1.5px solid #000000;box-shadow:2px 2px 0px #000000;vertical-align:middle;">
                     <span>{{ config('app.name', 'Asta Panel') }}</span>
                 </a>
                 <nav class="navbar navbar-static-top">

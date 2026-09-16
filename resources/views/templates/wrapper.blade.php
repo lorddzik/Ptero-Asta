@@ -16,8 +16,15 @@
             <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#0967d3">
             <link rel="shortcut icon" href="/favicons/favicon.ico">
             <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-            <meta name="theme-color" content="#0D1117">
             <link rel="stylesheet" href="/themes/pterodactyl/css/neo-brutalism.css">
+            <script>
+                try {
+                    if (localStorage.getItem('asta_theme') === 'light') {
+                        document.documentElement.classList.add('theme-light');
+                        document.documentElement.setAttribute('data-theme', 'light');
+                    }
+                } catch (e) {}
+            </script>
         @show
 
         @section('user-data')
