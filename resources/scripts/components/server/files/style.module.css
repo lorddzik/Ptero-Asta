@@ -25,13 +25,12 @@
 
     &:hover {
         background-color: var(--neo-surface-hover) !important;
-        transform: translate(-1px, -1px);
-        box-shadow: 5px 5px 0px #000000 !important;
+        border-color: #00D2FF !important;
+        box-shadow: 4px 4px 0px #000000 !important;
     }
 
     &:active {
-        transform: translate(1px, 1px);
-        box-shadow: 1px 1px 0px #000000 !important;
+        box-shadow: 2px 2px 0px #000000 !important;
     }
 
     & > .details {
