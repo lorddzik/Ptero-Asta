@@ -38,9 +38,9 @@ export default ({ renderLeft, withinFileEditor, isNewFile }: Props) => {
             });
 
     return (
-        <div css={tw`flex flex-grow-0 items-center text-sm text-neutral-500 overflow-x-hidden`}>
-            {renderLeft || <div css={tw`w-12`} />}/<span css={tw`px-1 text-neutral-300`}>home</span>/
-            <NavLink to={`/server/${id}/files`} css={tw`px-1 text-neutral-200 no-underline hover:text-neutral-100`}>
+        <div css={tw`flex flex-grow-0 items-center text-sm overflow-x-hidden font-mono`} style={{ color: 'var(--neo-text-muted)' }}>
+            {renderLeft || <div css={tw`w-12`} />}/<span css={tw`px-1 font-bold`} style={{ color: 'var(--neo-text)' }}>home</span>/
+            <NavLink to={`/server/${id}/files`} css={tw`px-1 no-underline font-bold hover:underline`} style={{ color: 'var(--asta-cyan, #00D2FF)' }}>
                 container
             </NavLink>
             /
@@ -49,21 +49,22 @@ export default ({ renderLeft, withinFileEditor, isNewFile }: Props) => {
                     <React.Fragment key={index}>
                         <NavLink
                             to={`/server/${id}/files#${encodePathSegments(crumb.path)}`}
-                            css={tw`px-1 text-neutral-200 no-underline hover:text-neutral-100`}
+                            css={tw`px-1 no-underline font-bold hover:underline`}
+                            style={{ color: 'var(--neo-text)' }}
                         >
                             {crumb.name}
                         </NavLink>
                         /
                     </React.Fragment>
                 ) : (
-                    <span key={index} css={tw`px-1 text-neutral-300`}>
+                    <span key={index} css={tw`px-1 font-bold`} style={{ color: 'var(--neo-text)' }}>
                         {crumb.name}
                     </span>
                 )
             )}
             {file && (
                 <React.Fragment>
-                    <span css={tw`px-1 text-neutral-300`}>{file}</span>
+                    <span css={tw`px-1 font-bold`} style={{ color: 'var(--neo-text)' }}>{file}</span>
                 </React.Fragment>
             )}
         </div>

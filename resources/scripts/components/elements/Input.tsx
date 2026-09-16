@@ -48,7 +48,7 @@ const inputStyle = css<Props>`
 
     & + .input-help {
         ${tw`mt-1.5 text-xs font-bold`};
-        ${(props) => (props.hasError ? tw`text-red-400` : tw`text-neutral-400`)};
+        color: ${(props) => (props.hasError ? '#EF4444' : 'var(--neo-text-muted)')} !important;
     }
 
     &:required,

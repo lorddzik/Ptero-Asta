@@ -17,19 +17,20 @@ const RightNavigation = styled.div`
     & > a,
     & > button,
     & > .navigation-link {
-        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer font-bold`};
+        ${tw`flex items-center h-full no-underline px-6 cursor-pointer font-bold`};
+        color: var(--neo-text-muted);
         transition: all 0.1s ease;
 
         &:hover {
-            color: #FFFFFF;
-            background-color: #21262D;
+            color: var(--neo-text);
+            background-color: var(--neo-surface-light);
         }
 
         &:active,
         &.active {
-            color: #00D2FF !important;
-            background-color: #0D1117 !important;
-            box-shadow: inset 0 -3px #00D2FF;
+            color: #000000 !important;
+            background-color: #00D2FF !important;
+            box-shadow: inset 0 -3px #000000;
         }
     }
 `;
@@ -72,7 +73,7 @@ export default () => {
     };
 
     return (
-        <div className={'w-full bg-[#161B22] border-b-[2.5px] border-black shadow-[0_4px_0_#000000] z-30 sticky top-0 overflow-x-auto'}>
+        <div className={'w-full border-b-[2.5px] border-black shadow-[0_4px_0_#000000] z-30 sticky top-0 overflow-x-auto'} style={{ backgroundColor: 'var(--neo-surface)' }}>
             <SpinnerOverlay visible={isLoggingOut} />
             <div className={'mx-auto w-full flex items-center h-[3.75rem] max-w-[1200px] px-2'}>
                 <div id={'logo'} className={'flex-1 flex items-center'}>
@@ -88,7 +89,7 @@ export default () => {
                             className={'w-8 h-8 mr-3 object-cover rounded-full border-[1.5px] border-black'}
                             style={{ objectPosition: '50% 25%', filter: 'drop-shadow(2px 2px 0px #000000)' }}
                         />
-                        <span className={'text-xl font-header font-black tracking-wider uppercase text-white group-hover:text-[#00D2FF] transition-colors duration-100'}>
+                        <span className={'text-xl font-header font-black tracking-wider uppercase group-hover:text-[#00D2FF] transition-colors duration-100'} style={{ color: 'var(--neo-text)' }}>
                             {name || 'Asta Panel'}
                         </span>
                     </Link>

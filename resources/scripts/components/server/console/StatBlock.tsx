@@ -32,11 +32,11 @@ export default ({ title, copyOnClick, icon, color, className, children }: StatBl
                     />
                 </div>
                 <div className={'flex flex-col justify-center overflow-hidden w-full'}>
-                    <p className={'font-header font-medium leading-tight text-xs md:text-sm text-gray-200'}>{title}</p>
+                    <p className={'font-header font-medium leading-tight text-xs md:text-sm'} style={{ color: 'var(--neo-text-muted)' }}>{title}</p>
                     <div
                         ref={ref}
-                        className={'h-[1.75rem] w-full font-semibold text-gray-50 truncate'}
-                        style={{ fontSize }}
+                        className={'h-[1.75rem] w-full font-semibold truncate'}
+                        style={{ fontSize, color: 'var(--neo-text)' }}
                     >
                         {children}
                     </div>

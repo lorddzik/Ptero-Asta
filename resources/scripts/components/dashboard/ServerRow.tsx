@@ -17,14 +17,14 @@ const isAlarmState = (current: number, limit: number): boolean => limit > 0 && c
 
 const Icon = memo(
     styled(FontAwesomeIcon)<{ $alarm: boolean }>`
-        ${(props) => (props.$alarm ? tw`text-red-400` : tw`text-neutral-500`)};
+        ${(props) => (props.$alarm ? tw`text-red-500` : tw`text-neutral-500`)};
     `,
     isEqual
 );
 
 const IconDescription = styled.p<{ $alarm: boolean }>`
-    ${tw`text-sm ml-2`};
-    ${(props) => (props.$alarm ? tw`text-white` : tw`text-neutral-400`)};
+    ${tw`text-sm ml-2 font-bold`};
+    color: ${(props) => (props.$alarm ? '#EF4444' : 'var(--neo-text)')} !important;
 `;
 
 const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | undefined }>`
@@ -93,16 +93,16 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     <FontAwesomeIcon icon={faServer} />
                 </div>
                 <div>
-                    <p css={tw`text-lg break-words`}>{server.name}</p>
+                    <p css={tw`text-lg break-words font-extrabold`} style={{ color: 'var(--neo-text)' }}>{server.name}</p>
                     {!!server.description && (
-                        <p css={tw`text-sm text-neutral-300 break-words line-clamp-2`}>{server.description}</p>
+                        <p css={tw`text-sm break-words line-clamp-2`} style={{ color: 'var(--neo-text-muted)' }}>{server.description}</p>
                     )}
                 </div>
             </div>
             <div css={tw`flex-1 ml-4 lg:block lg:col-span-2 hidden`}>
                 <div css={tw`flex justify-center`}>
                     <FontAwesomeIcon icon={faEthernet} css={tw`text-neutral-500`} />
-                    <p css={tw`text-sm text-neutral-400 ml-2`}>
+                    <p css={tw`text-sm ml-2 font-mono`} style={{ color: 'var(--neo-text-muted)' }}>
                         {server.allocations
                             .filter((alloc) => alloc.isDefault)
                             .map((allocation) => (
@@ -117,19 +117,19 @@ export default ({ server, className }: { server: Server; className?: string }) =
                 {!stats || isSuspended || server.isNodeUnderMaintenance ? (
                     isSuspended ? (
                         <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
+                            <span css={tw`bg-red-500 rounded px-2 py-1 text-white font-bold text-xs`}>
                                 {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
                             </span>
                         </div>
                     ) : server.isNodeUnderMaintenance ? (
                         <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-yellow-500 rounded px-2 py-1 text-yellow-100 text-xs`}>
+                            <span css={tw`bg-yellow-500 rounded px-2 py-1 text-black font-bold text-xs`}>
                                 Under Maintenance
                             </span>
                         </div>
                     ) : server.isTransferring || server.status ? (
                         <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
+                            <span css={tw`bg-neutral-600 rounded px-2 py-1 text-white font-bold text-xs`}>
                                 {server.isTransferring
                                     ? 'Transferring'
                                     : server.status === 'installing'
@@ -151,7 +151,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {stats.cpuUsagePercent.toFixed(2)} %
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {cpuLimit}</p>
+                            <p css={tw`text-xs text-center mt-1 font-semibold`} style={{ color: 'var(--neo-text-muted)' }}>of {cpuLimit}</p>
                         </div>
                         <div css={tw`flex-1 ml-4 sm:block hidden`}>
                             <div css={tw`flex justify-center`}>
@@ -160,7 +160,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {bytesToString(stats.memoryUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {memoryLimit}</p>
+                            <p css={tw`text-xs text-center mt-1 font-semibold`} style={{ color: 'var(--neo-text-muted)' }}>of {memoryLimit}</p>
                         </div>
                         <div css={tw`flex-1 ml-4 sm:block hidden`}>
                             <div css={tw`flex justify-center`}>
@@ -169,7 +169,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {bytesToString(stats.diskUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {diskLimit}</p>
+                            <p css={tw`text-xs text-center mt-1 font-semibold`} style={{ color: 'var(--neo-text-muted)' }}>of {diskLimit}</p>
                         </div>
                     </React.Fragment>
                 )}
