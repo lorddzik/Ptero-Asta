@@ -31,7 +31,7 @@ const Container = styled.div`
 export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => (
     <Container>
         {title && (
-            <h2 css={tw`text-3xl text-center text-white font-extrabold uppercase tracking-wide py-4`}>
+            <h2 css={tw`text-3xl text-center font-extrabold uppercase tracking-wide py-4`} style={{ color: 'var(--neo-text)' }}>
                 {title}
             </h2>
         )}
@@ -40,9 +40,10 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             <div
                 css={tw`md:flex w-full rounded-md p-6 md:pl-2 mx-1`}
                 style={{
-                    backgroundColor: '#161B22',
+                    backgroundColor: 'var(--neo-surface)',
                     border: '3px solid #000000',
                     boxShadow: '8px 8px 0px #00D2FF',
+                    color: 'var(--neo-text)',
                 }}
             >
                 <div css={tw`flex-none select-none mb-6 md:mb-0 self-center flex items-center justify-center p-4`}>

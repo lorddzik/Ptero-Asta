@@ -22,11 +22,6 @@ export default createGlobalStyle`
         position: relative;
     }
 
-    html.theme-light body, body.theme-light {
-        background-color: #F0F4F8 !important;
-        color: #0B0F17 !important;
-    }
-
     body::before {
         content: '';
         position: fixed;
@@ -34,20 +29,31 @@ export default createGlobalStyle`
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: -999;
+        z-index: 0;
         pointer-events: none;
         background-image: 
-            radial-gradient(circle at 50% 45%, rgba(13, 17, 23, 0.78) 0%, rgba(13, 17, 23, 0.94) 85%),
-            url('/assets/astabrand.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
+            radial-gradient(circle at 50% 50%, rgba(13, 17, 23, 0.25) 0%, rgba(13, 17, 23, 0.65) 55%, #0D1117 90%),
+            url('/assets/astabrand.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
+    }
+
+    #app, #modal-portal {
+        position: relative;
+        z-index: 1;
+    }
+
+    html.theme-light body, body.theme-light {
+        background-color: #F0F4F8 !important;
+        color: #0B0F17 !important;
     }
 
     html.theme-light body::before, body.theme-light::before {
         background-image: 
-            radial-gradient(circle at 50% 45%, rgba(240, 244, 248, 0.88) 0%, rgba(240, 244, 248, 0.97) 85%),
+            radial-gradient(circle at 50% 50%, rgba(240, 244, 248, 0.3) 0%, rgba(240, 244, 248, 0.7) 55%, #F0F4F8 90%),
             url('/assets/astabrand.png') !important;
+        background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
     }
 
     ::selection {
