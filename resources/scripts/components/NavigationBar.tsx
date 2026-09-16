@@ -17,10 +17,12 @@ const RightNavigation = styled.div`
     & > a,
     & > button,
     & > .navigation-link {
-        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-100 font-bold`};
+        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer font-bold`};
+        transition: all 0.1s ease;
 
         &:hover {
-            ${tw`text-white bg-[#21262D]`};
+            color: #FFFFFF;
+            background-color: #21262D;
         }
 
         &:active,
@@ -59,7 +61,8 @@ export default () => {
                         <img
                             src={'/assets/svgs/pterodactyl.svg'}
                             alt={'Asta'}
-                            className={'w-8 h-8 mr-3 object-contain filter drop-shadow-[2px_2px_0px_#000]'}
+                            className={'w-8 h-8 mr-3 object-contain'}
+                            style={{ filter: 'drop-shadow(2px 2px 0px #000000)' }}
                         />
                         <span className={'text-xl font-header font-black tracking-wider uppercase text-white group-hover:text-[#00D2FF] transition-colors duration-100'}>
                             {name || 'Asta Panel'}
