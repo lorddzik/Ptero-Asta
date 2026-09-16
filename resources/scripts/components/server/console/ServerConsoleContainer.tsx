@@ -16,10 +16,14 @@ export type PowerAction = 'start' | 'stop' | 'restart' | 'kill';
 const ServerConsoleContainer = () => {
     const name = ServerContext.useStoreState((state) => state.server.data!.name);
     const description = ServerContext.useStoreState((state) => state.server.data!.description);
+    const status = ServerContext.useStoreState((state) => state.status.value);
     const isInstalling = ServerContext.useStoreState((state) => state.server.isInstalling);
     const isTransferring = ServerContext.useStoreState((state) => state.server.data!.isTransferring);
     const eggFeatures = ServerContext.useStoreState((state) => state.server.data!.eggFeatures, isEqual);
     const isNodeUnderMaintenance = ServerContext.useStoreState((state) => state.server.data!.isNodeUnderMaintenance);
+
+    const isOnline = status === 'running';
+    const isTransitioning = status === 'starting' || status === 'stopping';
 
     return (
         <ServerContentBlock title={'Console'}>
@@ -33,11 +37,35 @@ const ServerConsoleContainer = () => {
                 </Alert>
             )}
             <div className={'grid grid-cols-4 gap-4 mb-4'}>
-                <div className={'hidden sm:block sm:col-span-2 lg:col-span-3 pr-4'}>
-                    <h1 className={'font-header font-medium text-2xl leading-relaxed line-clamp-1'} style={{ color: 'var(--neo-text)' }}>
-                        {name}
-                    </h1>
-                    <p className={'text-sm line-clamp-2'} style={{ color: 'var(--neo-text-muted)' }}>{description}</p>
+                <div className={'col-span-4 sm:col-span-2 lg:col-span-3 pr-4'}>
+                    <div className={'flex flex-wrap items-center gap-3'}>
+                        <h1 className={'font-header font-black text-2xl lg:text-3xl tracking-tight leading-relaxed line-clamp-1'} style={{ color: 'var(--neo-text)' }}>
+                            {name}
+                        </h1>
+                        <div
+                            className={'inline-flex items-center px-3 py-1 rounded text-xs font-black uppercase tracking-wider select-none'}
+                            style={{
+                                backgroundColor: isOnline ? '#10B981' : isTransitioning ? '#FACC15' : '#EF4444',
+                                color: isTransitioning ? '#000000' : '#FFFFFF',
+                                border: '2px solid #000000',
+                                boxShadow: '2.5px 2.5px 0px #000000',
+                            }}
+                        >
+                            <span className={'relative flex h-2 w-2 mr-2'}>
+                                {isOnline && (
+                                    <span className={'animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75'} />
+                                )}
+                                <span
+                                    className={'relative inline-flex rounded-full h-2 w-2'}
+                                    style={{ backgroundColor: isTransitioning ? '#000000' : '#FFFFFF' }}
+                                />
+                            </span>
+                            {status ? status : 'Offline'}
+                        </div>
+                    </div>
+                    {description && (
+                        <p className={'text-sm line-clamp-2 mt-1'} style={{ color: 'var(--neo-text-muted)' }}>{description}</p>
+                    )}
                 </div>
                 <div className={'col-span-4 sm:col-span-2 lg:col-span-1 self-end'}>
                     <Can action={['control.start', 'control.stop', 'control.restart']} matchAny>

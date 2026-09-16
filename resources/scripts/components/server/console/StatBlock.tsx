@@ -13,9 +13,10 @@ interface StatBlockProps {
     icon: IconDefinition;
     children: React.ReactNode;
     className?: string;
+    progress?: number;
 }
 
-export default ({ title, copyOnClick, icon, color, className, children }: StatBlockProps) => {
+export default ({ title, copyOnClick, icon, color, className, progress, children }: StatBlockProps) => {
     const { fontSize, ref } = useFitText({ minFontSize: 8, maxFontSize: 500 });
 
     return (
@@ -40,8 +41,21 @@ export default ({ title, copyOnClick, icon, color, className, children }: StatBl
                     >
                         {children}
                     </div>
+                    {typeof progress === 'number' && !isNaN(progress) && (
+                        <div className={'w-full bg-black/20 rounded-full h-1.5 mt-1 overflow-hidden border border-black/40'}>
+                            <div
+                                className={'h-full rounded-full transition-all duration-300'}
+                                style={{
+                                    width: `${Math.min(Math.max(progress, 0), 100)}%`,
+                                    backgroundColor:
+                                        progress > 90 ? '#EF4444' : progress > 70 ? '#FACC15' : '#00D2FF',
+                                }}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
         </CopyOnClick>
     );
 };
+

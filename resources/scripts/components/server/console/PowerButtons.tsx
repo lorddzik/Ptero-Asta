@@ -4,6 +4,8 @@ import Can from '@/components/elements/Can';
 import { ServerContext } from '@/state/server';
 import { PowerAction } from '@/components/server/console/ServerConsoleContainer';
 import { Dialog } from '@/components/elements/dialog';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faRedo, faSkull, faStop } from '@fortawesome/free-solid-svg-icons';
 
 interface PowerButtonProps {
     className?: string;
@@ -53,12 +55,20 @@ export default ({ className }: PowerButtonProps) => {
                     className={'flex-1'}
                     disabled={status !== 'offline'}
                     onClick={onButtonClick.bind(this, 'start')}
+                    style={status === 'offline' ? { backgroundColor: '#10B981', color: '#000000', borderColor: '#000000' } : undefined}
                 >
+                    <FontAwesomeIcon icon={faPlay} className={'mr-1.5 text-xs'} />
                     Start
                 </Button>
             </Can>
             <Can action={'control.restart'}>
-                <Button.Text className={'flex-1'} disabled={!status} onClick={onButtonClick.bind(this, 'restart')}>
+                <Button.Text
+                    className={'flex-1'}
+                    disabled={!status}
+                    onClick={onButtonClick.bind(this, 'restart')}
+                    style={status ? { backgroundColor: '#FACC15', color: '#000000', borderColor: '#000000' } : undefined}
+                >
+                    <FontAwesomeIcon icon={faRedo} className={'mr-1.5 text-xs'} />
                     Restart
                 </Button.Text>
             </Can>
@@ -67,7 +77,9 @@ export default ({ className }: PowerButtonProps) => {
                     className={'flex-1'}
                     disabled={status === 'offline'}
                     onClick={onButtonClick.bind(this, killable ? 'kill' : 'stop')}
+                    style={status !== 'offline' ? { backgroundColor: killable ? '#DC2626' : '#EF4444', color: '#FFFFFF', borderColor: '#000000' } : undefined}
                 >
+                    <FontAwesomeIcon icon={killable ? faSkull : faStop} className={'mr-1.5 text-xs'} />
                     {killable ? 'Kill' : 'Stop'}
                 </Button.Danger>
             </Can>

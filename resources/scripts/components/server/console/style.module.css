@@ -72,7 +72,7 @@
     }
 
     & .command_input {
-        @apply relative px-2 text-white pl-10 pr-4 py-2.5 w-full font-mono text-sm;
+        @apply relative px-2 text-white pl-16 pr-4 py-2.5 w-full font-mono text-sm;
         background-color: var(--neo-surface-light) !important;
         color: var(--neo-text) !important;
         border: 0;

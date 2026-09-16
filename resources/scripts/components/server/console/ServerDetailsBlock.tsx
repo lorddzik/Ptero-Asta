@@ -88,6 +88,10 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
         });
     });
 
+    const cpuProgress = limits?.cpu ? (stats.cpu / limits.cpu) * 100 : undefined;
+    const memoryProgress = limits?.memory ? (stats.memory / (limits.memory * 1024 * 1024)) * 100 : undefined;
+    const diskProgress = limits?.disk ? (stats.disk / (limits.disk * 1024 * 1024)) * 100 : undefined;
+
     return (
         <div className={classNames('grid grid-cols-6 gap-2 md:gap-4', className)}>
             <StatBlock icon={faWifi} title={'Address'} copyOnClick={allocation}>
@@ -106,7 +110,12 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                     capitalize(status)
                 )}
             </StatBlock>
-            <StatBlock icon={faMicrochip} title={'CPU Load'} color={getBackgroundColor(stats.cpu, limits.cpu)}>
+            <StatBlock
+                icon={faMicrochip}
+                title={'CPU Load'}
+                color={getBackgroundColor(stats.cpu, limits.cpu)}
+                progress={status === 'offline' ? 0 : cpuProgress}
+            >
                 {status === 'offline' ? (
                     <span style={{ color: 'var(--neo-text-muted)' }}>Offline</span>
                 ) : (
@@ -117,6 +126,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                 icon={faMemory}
                 title={'Memory'}
                 color={getBackgroundColor(stats.memory / 1024, limits.memory * 1024)}
+                progress={status === 'offline' ? 0 : memoryProgress}
             >
                 {status === 'offline' ? (
                     <span style={{ color: 'var(--neo-text-muted)' }}>Offline</span>
@@ -124,7 +134,12 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                     <Limit limit={textLimits.memory}>{bytesToString(stats.memory)}</Limit>
                 )}
             </StatBlock>
-            <StatBlock icon={faHdd} title={'Disk'} color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}>
+            <StatBlock
+                icon={faHdd}
+                title={'Disk'}
+                color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}
+                progress={diskProgress}
+            >
                 <Limit limit={textLimits.disk}>{bytesToString(stats.disk)}</Limit>
             </StatBlock>
             <StatBlock icon={faCloudDownloadAlt} title={'Network (Inbound)'}>
