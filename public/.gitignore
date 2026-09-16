@@ -1,4 +1,4 @@
-assets
-assets/*
-!assets/svgs
-!assets/svgs/*.svg
+/assets/*
+!/assets/svgs/
+!/assets/svgs/*
+!/assets/astabrand.png
