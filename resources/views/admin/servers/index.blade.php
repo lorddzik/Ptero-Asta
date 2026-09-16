@@ -46,8 +46,14 @@
                             <tr data-server="{{ $server->uuidShort }}">
                                 <td><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></td>
                                 <td><code title="{{ $server->uuid }}">{{ $server->uuid }}</code></td>
-                                <td><a href="{{ route('admin.users.view', $server->user->id) }}">{{ $server->user->username }}</a></td>
-                                <td><a href="{{ route('admin.nodes.view', $server->node->id) }}">{{ $server->node->name }}</a></td>
+                                <td><a href="{{ route('admin.users.view', $server->user->id ?? 0) }}">{{ $server->user->username ?? 'Unknown' }}</a></td>
+                                <td>
+                                    @if($server->node)
+                                        <a href="{{ route('admin.nodes.view', $server->node->id) }}">{{ $server->node->name }}</a>
+                                    @else
+                                        <span class="label label-default">N/A</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <code>{{ $server->allocation->alias }}:{{ $server->allocation->port }}</code>
                                 </td>

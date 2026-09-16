@@ -10,6 +10,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
 use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
+use Pterodactyl\Models\Filters\AdminUserFilter;
 use Illuminate\View\Factory as ViewFactory;
 use Pterodactyl\Exceptions\DisplayException;
 use Pterodactyl\Http\Controllers\Controller;
@@ -53,7 +55,14 @@ class UserController extends Controller
                 ->leftJoin('servers', 'servers.owner_id', '=', 'users.id')
                 ->groupBy('users.id')
         )
-            ->allowedFilters(['username', 'email', 'uuid'])
+            ->allowedFilters([
+                'username',
+                'email',
+                'uuid',
+                'name_first',
+                'name_last',
+                AllowedFilter::custom('*', new AdminUserFilter()),
+            ])
             ->defaultSort('-root_admin')
             ->allowedSorts(['id', 'uuid'])
             ->paginate(50);

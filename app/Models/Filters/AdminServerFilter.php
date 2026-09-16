@@ -21,6 +21,7 @@ class AdminServerFilter implements Filter
         $query
             ->select('servers.*')
             ->leftJoin('users', 'users.id', '=', 'servers.owner_id')
+            ->leftJoin('nodes', 'nodes.id', '=', 'servers.node_id')
             ->where(function (Builder $builder) use ($value) {
                 $builder->where('servers.uuid', $value)
                     ->orWhere('servers.uuid', 'LIKE', "$value%")
@@ -28,7 +29,8 @@ class AdminServerFilter implements Filter
                     ->orWhere('servers.external_id', $value)
                     ->orWhereRaw('LOWER(users.username) LIKE ?', ["%$value%"])
                     ->orWhereRaw('LOWER(users.email) LIKE ?', ["$value%"])
-                    ->orWhereRaw('LOWER(servers.name) LIKE ?', ["%$value%"]);
+                    ->orWhereRaw('LOWER(servers.name) LIKE ?', ["%$value%"])
+                    ->orWhereRaw('LOWER(nodes.name) LIKE ?', ["%$value%"]);
             })
             ->groupBy('servers.id');
     }
