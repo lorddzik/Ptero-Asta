@@ -14,7 +14,7 @@
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#0967d3">
         <link rel="shortcut icon" href="/favicons/favicon.ico">
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-        <meta name="theme-color" content="#0e4688">
+        <meta name="theme-color" content="#0D1117">
 
         @include('layouts.scripts')
 
@@ -26,6 +26,7 @@
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
             {!! Theme::css('css/pterodactyl.css?t={cache-version}') !!}
+            {!! Theme::css('css/neo-brutalism.css?t={cache-version}') !!}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -38,7 +39,8 @@
     <body class="hold-transition skin-blue fixed sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
-                <a href="{{ route('index') }}" class="logo">
+                <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;justify-content:center;gap:8px;">
+                    <img src="/assets/svgs/pterodactyl.svg" alt="Asta" style="height:28px;width:28px;object-fit:contain;vertical-align:middle;">
                     <span>{{ config('app.name', 'Asta Panel') }}</span>
                 </a>
                 <nav class="navbar navbar-static-top">

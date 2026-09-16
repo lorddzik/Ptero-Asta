@@ -1,19 +1,47 @@
 .button {
     @apply px-4 py-2 inline-flex items-center justify-center;
-    @apply rounded text-base font-semibold transition-all duration-100;
-    @apply focus:ring-[3px] focus:ring-offset-2 focus:ring-offset-gray-700 focus:ring-opacity-50;
+    @apply rounded text-base font-extrabold transition-all duration-100;
+    border: 2.5px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000000 !important;
+    }
+
+    &:active:not(:disabled) {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px #000000 !important;
+    }
 
     /* Sizing Controls */
     &.small {
-        @apply px-4 py-0 h-8 font-normal text-sm focus:ring-2;
+        @apply px-3 py-0 h-8 font-bold text-xs;
+        border-width: 2px !important;
+        box-shadow: 3px 3px 0px #000000 !important;
+
+        &:hover:not(:disabled) {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #000000 !important;
+        }
+
+        &:active:not(:disabled) {
+            transform: translate(1px, 1px);
+            box-shadow: 0px 0px 0px #000000 !important;
+        }
     }
 
     &.large {
-        @apply px-5 py-3;
+        @apply px-6 py-3 text-lg;
     }
 
     &.secondary {
-        @apply text-gray-50 bg-transparent;
+        @apply text-white bg-transparent;
+        border-color: #30363D !important;
+        box-shadow: 3px 3px 0px #000000 !important;
 
         &:disabled {
             background: transparent !important;
@@ -21,7 +49,9 @@
     }
 
     &:disabled {
-        @apply cursor-not-allowed;
+        @apply cursor-not-allowed opacity-50;
+        transform: none !important;
+        box-shadow: 2px 2px 0px #000000 !important;
     }
 
     &.square {
@@ -34,40 +64,74 @@
 }
 
 .primary {
-    @apply bg-blue-600 text-blue-50;
-    @apply hover:bg-blue-500 active:bg-blue-500 focus:ring-blue-400 focus:ring-opacity-75;
+    background-color: #00D2FF !important;
+    color: #000000 !important;
+
+    &:hover:not(:disabled) {
+        background-color: #33DCFF !important;
+    }
 
     &.secondary {
-        @apply hover:bg-blue-600 active:bg-blue-600;
+        background-color: transparent !important;
+        color: #00D2FF !important;
+        border-color: #00D2FF !important;
+
+        &:hover:not(:disabled) {
+            background-color: #00D2FF !important;
+            color: #000000 !important;
+        }
     }
 
     &:disabled {
-        @apply bg-blue-500/75 text-blue-200/75;
+        background-color: #00D2FF !important;
+        opacity: 0.45;
     }
 }
 
 .text {
-    @apply bg-gray-500 text-gray-50;
-    @apply hover:bg-gray-400 active:bg-gray-400 focus:ring-gray-300 focus:ring-opacity-50;
+    background-color: #21262D !important;
+    color: #FFFFFF !important;
+
+    &:hover:not(:disabled) {
+        background-color: #30363D !important;
+    }
 
     &.secondary {
-        @apply hover:bg-gray-500 active:bg-gray-500;
+        background-color: transparent !important;
+        color: #FFFFFF !important;
+
+        &:hover:not(:disabled) {
+            background-color: #21262D !important;
+        }
     }
 
     &:disabled {
-        @apply bg-gray-500/75 text-gray-200/75;
+        background-color: #21262D !important;
+        opacity: 0.45;
     }
 }
 
 .danger {
-    @apply bg-red-600 text-gray-50;
-    @apply hover:bg-red-500 active:bg-red-500 focus:ring-red-400 focus:ring-opacity-75;
+    background-color: #EF4444 !important;
+    color: #FFFFFF !important;
+
+    &:hover:not(:disabled) {
+        background-color: #F87171 !important;
+    }
 
     &.secondary {
-        @apply hover:bg-red-600 active:bg-red-600;
+        background-color: transparent !important;
+        color: #EF4444 !important;
+        border-color: #EF4444 !important;
+
+        &:hover:not(:disabled) {
+            background-color: #EF4444 !important;
+            color: #FFFFFF !important;
+        }
     }
 
     &:disabled {
-        @apply bg-red-600/75 text-red-50/75;
+        background-color: #EF4444 !important;
+        opacity: 0.45;
     }
 }

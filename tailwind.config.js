@@ -23,13 +23,32 @@ module.exports = {
                 header: ['"IBM Plex Sans"', '"Roboto"', 'system-ui', 'sans-serif'],
             },
             colors: {
-                black: '#131a20',
+                black: '#000000',
+                'neo-bg': '#0D1117',
+                'neo-surface': '#161B22',
+                'neo-surface-light': '#21262D',
+                'asta-cyan': '#00D2FF',
+                'asta-green': '#10B981',
+                'asta-red': '#EF4444',
+                'asta-yellow': '#FACC15',
+                'asta-purple': '#A855F7',
                 // "primary" and "neutral" are deprecated, prefer the use of "blue" and "gray"
                 // in new code.
                 primary: colors.blue,
                 gray: gray,
                 neutral: gray,
                 cyan: colors.cyan,
+            },
+            boxShadow: {
+                neo: '4px 4px 0px #000000',
+                'neo-sm': '2px 2px 0px #000000',
+                'neo-lg': '6px 6px 0px #000000',
+                'neo-cyan': '4px 4px 0px #00D2FF',
+                'neo-red': '4px 4px 0px #EF4444',
+                'neo-green': '4px 4px 0px #10B981',
+            },
+            borderWidth: {
+                neo: '2.5px',
             },
             fontSize: {
                 '2xs': '0.625rem',
@@ -38,7 +57,7 @@ module.exports = {
                 250: '250ms',
             },
             borderColor: theme => ({
-                default: theme('colors.neutral.400', 'currentColor'),
+                default: '#000000',
             }),
         },
     },

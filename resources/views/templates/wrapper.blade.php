@@ -16,7 +16,8 @@
             <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#0967d3">
             <link rel="shortcut icon" href="/favicons/favicon.ico">
             <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-            <meta name="theme-color" content="#0e4688">
+            <meta name="theme-color" content="#0D1117">
+            <link rel="stylesheet" href="/themes/pterodactyl/css/neo-brutalism.css">
         @show
 
         @section('user-data')
@@ -36,7 +37,7 @@
 
         @include('layouts.scripts')
     </head>
-    <body class="{{ $css['body'] ?? 'bg-neutral-50' }}">
+    <body class="{{ $css['body'] ?? 'bg-[#0D1117]' }}">
         @section('content')
             @yield('above-container')
             @yield('container')

@@ -14,12 +14,19 @@ export default createGlobalStyle`
     }
 
     body {
-        ${tw`font-sans bg-neutral-800 text-neutral-200`};
+        background-color: #0D1117 !important;
+        color: #FFFFFF !important;
+        font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         letter-spacing: 0.015em;
     }
 
+    ::selection {
+        background: #00D2FF !important;
+        color: #000000 !important;
+    }
+
     h1, h2, h3, h4, h5, h6 {
-        ${tw`font-medium tracking-normal font-header`};
+        ${tw`font-bold tracking-tight font-header text-white`};
     }
 
     p {
@@ -44,34 +51,24 @@ export default createGlobalStyle`
         -moz-appearance: textfield !important;
     }
 
-    /* Scroll Bar Style */
+    /* Neo-Brutalist Sharp Scrollbars */
     ::-webkit-scrollbar {
-        background: none;
-        width: 16px;
-        height: 16px;
+        background: #0D1117;
+        width: 12px;
+        height: 12px;
     }
 
     ::-webkit-scrollbar-thumb {
-        border: solid 0 rgb(0 0 0 / 0%);
-        border-right-width: 4px;
-        border-left-width: 4px;
-        -webkit-border-radius: 9px 4px;
-        -webkit-box-shadow: inset 0 0 0 1px hsl(211, 10%, 53%), inset 0 0 0 4px hsl(209deg 18% 30%);
+        background: #21262D;
+        border: 2px solid #000000;
+        border-radius: 0px;
     }
 
-    ::-webkit-scrollbar-track-piece {
-        margin: 4px 0;
-    }
-
-    ::-webkit-scrollbar-thumb:horizontal {
-        border-right-width: 0;
-        border-left-width: 0;
-        border-top-width: 4px;
-        border-bottom-width: 4px;
-        -webkit-border-radius: 4px 9px;
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00D2FF;
     }
 
     ::-webkit-scrollbar-corner {
-        background: transparent;
+        background: #0D1117;
     }
 `;

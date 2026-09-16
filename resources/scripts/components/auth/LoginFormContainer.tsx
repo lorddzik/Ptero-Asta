@@ -30,12 +30,27 @@ const Container = styled.div`
 
 export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => (
     <Container>
-        {title && <h2 css={tw`text-3xl text-center text-neutral-100 font-medium py-4`}>{title}</h2>}
-        <FlashMessageRender css={tw`mb-2 px-1`} />
+        {title && (
+            <h2 css={tw`text-3xl text-center text-white font-extrabold uppercase tracking-wide py-4`}>
+                {title}
+            </h2>
+        )}
+        <FlashMessageRender className={'mb-2 px-1'} />
         <Form {...props} ref={ref}>
-            <div css={tw`md:flex w-full bg-white shadow-lg rounded-lg p-6 md:pl-0 mx-1`}>
-                <div css={tw`flex-none select-none mb-6 md:mb-0 self-center`}>
-                    <img src={'/assets/astabrand.png'} css={tw`block w-48 md:w-64 mx-auto`} />
+            <div
+                css={tw`md:flex w-full rounded-md p-6 md:pl-2 mx-1`}
+                style={{
+                    backgroundColor: '#161B22',
+                    border: '3px solid #000000',
+                    boxShadow: '8px 8px 0px #00D2FF',
+                }}
+            >
+                <div css={tw`flex-none select-none mb-6 md:mb-0 self-center flex items-center justify-center p-4`}>
+                    <img
+                        src={'/assets/astabrand.png'}
+                        alt={'Asta'}
+                        css={tw`block w-44 md:w-56 mx-auto object-contain filter drop-shadow-[4px_4px_0px_#000000]`}
+                    />
                 </div>
                 <div css={tw`flex-1`}>{props.children}</div>
             </div>

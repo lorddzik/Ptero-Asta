@@ -17,17 +17,17 @@ const RightNavigation = styled.div`
     & > a,
     & > button,
     & > .navigation-link {
-        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-150`};
+        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-100 font-bold`};
 
-        &:active,
         &:hover {
-            ${tw`text-neutral-100 bg-black`};
+            ${tw`text-white bg-[#21262D]`};
         }
 
         &:active,
-        &:hover,
         &.active {
-            box-shadow: inset 0 -2px ${theme`colors.cyan.600`.toString()};
+            color: #00D2FF !important;
+            background-color: #0D1117 !important;
+            box-shadow: inset 0 -3px #00D2FF;
         }
     }
 `;
@@ -46,17 +46,24 @@ export default () => {
     };
 
     return (
-        <div className={'w-full bg-neutral-900 shadow-md overflow-x-auto'}>
+        <div className={'w-full bg-[#161B22] border-b-[2.5px] border-black shadow-[0_4px_0_#000000] z-30 sticky top-0 overflow-x-auto'}>
             <SpinnerOverlay visible={isLoggingOut} />
-            <div className={'mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]'}>
-                <div id={'logo'} className={'flex-1'}>
+            <div className={'mx-auto w-full flex items-center h-[3.75rem] max-w-[1200px] px-2'}>
+                <div id={'logo'} className={'flex-1 flex items-center'}>
                     <Link
                         to={'/'}
                         className={
-                            'text-2xl font-header font-medium px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150'
+                            'flex items-center px-4 no-underline group'
                         }
                     >
-                        {name}
+                        <img
+                            src={'/assets/svgs/pterodactyl.svg'}
+                            alt={'Asta'}
+                            className={'w-8 h-8 mr-3 object-contain filter drop-shadow-[2px_2px_0px_#000]'}
+                        />
+                        <span className={'text-xl font-header font-black tracking-wider uppercase text-white group-hover:text-[#00D2FF] transition-colors duration-100'}>
+                            {name || 'Asta Panel'}
+                        </span>
                     </Link>
                 </div>
                 <RightNavigation className={'flex h-full items-center justify-center'}>

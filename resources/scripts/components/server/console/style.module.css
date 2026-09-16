@@ -1,16 +1,29 @@
 .stat_block {
-    @apply flex items-center rounded shadow-lg relative;
+    @apply flex items-center rounded relative;
     @apply col-span-3 md:col-span-2 lg:col-span-6;
     @apply px-3 py-2 md:p-3 lg:p-4;
+    background-color: #161B22 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000000 !important;
+    }
 
     & > .status_bar {
-        @apply w-1 h-full absolute left-0 top-0 rounded-l sm:hidden;
+        @apply w-1.5 h-full absolute left-0 top-0 sm:hidden;
+        border-right: 1.5px solid #000000;
     }
 
     & > .icon {
-        @apply hidden flex-shrink-0 items-center justify-center rounded-lg shadow-md w-12 h-12;
-        @apply transition-colors duration-500;
+        @apply hidden flex-shrink-0 items-center justify-center w-12 h-12;
+        @apply transition-colors duration-150;
         @apply sm:flex sm:mr-4;
+        border: 2px solid #000000;
+        box-shadow: 2px 2px 0px #000000;
+        border-radius: 6px;
 
         & > svg {
             @apply w-6 h-6 m-auto;
@@ -20,6 +33,10 @@
 
 .terminal {
     @apply flex flex-col w-full;
+    border: 2.5px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 6px;
+    overflow: hidden;
 
     & .overflows_container {
         @apply -ml-4 sm:ml-0;
@@ -31,33 +48,54 @@
     }
 
     & > .container {
-        @apply rounded-t p-1 sm:p-2 bg-black min-h-[16rem] flex-1 font-mono text-sm;
+        @apply p-1 sm:p-2 min-h-[16rem] flex-1 font-mono text-sm;
+        background-color: #090C10 !important;
 
         & #terminal {
             @apply h-full;
 
             &::-webkit-scrollbar-track {
-                @apply w-2;
+                background: #090C10;
+                width: 8px;
             }
 
             &::-webkit-scrollbar-thumb {
-                @apply bg-gray-900;
+                background: #21262D;
+                border: 1.5px solid #000000;
             }
         }
     }
 
     & .command_icon {
-        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 transition-colors duration-100;
+        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 text-[#00D2FF];
     }
 
     & .command_input {
-        @apply relative bg-gray-900 px-2 text-gray-100 pl-10 pr-4 py-2 w-full font-mono text-sm sm:rounded-b;
-        @apply focus:ring-0 outline-none focus-visible:outline-none;
-        @apply border-0 border-b-2 border-transparent transition-colors duration-100;
-        @apply active:border-cyan-500 focus:border-cyan-500;
+        @apply relative px-2 text-white pl-10 pr-4 py-2.5 w-full font-mono text-sm;
+        background-color: #161B22 !important;
+        border: 0;
+        border-top: 2px solid #000000 !important;
+        outline: none;
+        box-shadow: none;
+
+        &:focus {
+            color: #00D2FF;
+            background-color: #1A222D !important;
+        }
     }
 }
 
 .chart_container {
-    @apply bg-gray-600 rounded shadow-lg pt-2 border-b-4 border-gray-700 relative;
+    background-color: #161B22 !important;
+    border: 2.5px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    border-radius: 6px;
+    padding-top: 0.5rem;
+    position: relative;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000000 !important;
+    }
 }
