@@ -36,7 +36,7 @@ export default createGlobalStyle`
             url('/assets/astabrand.png') !important;
         background-repeat: no-repeat !important;
         background-position: center center !important;
-        background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
+        background-size: cover, cover !important;
     }
 
     #app {
@@ -58,7 +58,7 @@ export default createGlobalStyle`
         background-image: 
             radial-gradient(circle at 50% 50%, rgba(240, 244, 248, 0.3) 0%, rgba(240, 244, 248, 0.7) 55%, #F0F4F8 90%),
             url('/assets/astabrand.png') !important;
-        background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
+        background-size: cover, cover !important;
     }
 
     ::selection {

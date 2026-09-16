@@ -48,7 +48,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             >
                 <div css={tw`flex-none select-none mb-6 md:mb-0 self-center flex items-center justify-center p-4`}>
                     <img
-                        src={'/assets/astabrand.png'}
+                        src={'/assets/astabrand-square.png'}
                         alt={'Asta'}
                         css={tw`block w-44 md:w-56 mx-auto object-contain`}
                         style={{ filter: 'drop-shadow(4px 4px 0px #000000)' }}
