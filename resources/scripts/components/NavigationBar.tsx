@@ -83,7 +83,7 @@ export default () => {
                         }
                     >
                         <img
-                            src={'/assets/astabrand.png'}
+                            src={'/assets/svgs/asta.svg'}
                             alt={'Asta'}
                             className={'w-8 h-8 mr-3 object-cover rounded-full border-[1.5px] border-black'}
                             style={{ objectPosition: '50% 25%', filter: 'drop-shadow(2px 2px 0px #000000)' }}
