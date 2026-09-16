@@ -109,12 +109,18 @@ export default ({
                                     {footer}
                                     {/* Keep this below the other buttons so that it isn't the default focus if they're present. */}
                                     {!hideCloseIcon && (
-                                        <div className={'absolute right-0 top-0 m-4'}>
+                                        <div className={'absolute right-0 top-0 m-4 z-20'}>
                                             <Button.Text
+                                                type={'button'}
                                                 size={Button.Sizes.Small}
                                                 shape={Button.Shapes.IconSquare}
-                                                onClick={onClose}
-                                                className={'group'}
+                                                onClick={(e: React.MouseEvent) => {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    onClose();
+                                                }}
+                                                className={'group cursor-pointer'}
+                                                style={{ border: '2px solid #000000', boxShadow: '2px 2px 0px #000000' }}
                                             >
                                                 <XIcon className={styles.close_icon} />
                                             </Button.Text>

@@ -39,9 +39,14 @@ export default createGlobalStyle`
         background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
     }
 
-    #app, #modal-portal {
+    #app {
         position: relative;
         z-index: 1;
+    }
+
+    #modal-portal {
+        position: relative;
+        z-index: 999999 !important;
     }
 
     html.theme-light body, body.theme-light {

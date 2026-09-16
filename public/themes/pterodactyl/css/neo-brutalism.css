@@ -87,9 +87,14 @@ body::before {
   background-size: 100% 100%, min(1000px, 92vw, 92vh) !important;
 }
 
-#app, #modal-portal {
+#app {
   position: relative;
   z-index: 1;
+}
+
+#modal-portal {
+  position: relative;
+  z-index: 999999 !important;
 }
 
 /* Light Mode Overrides */
@@ -457,23 +462,6 @@ html, body {
   position: relative;
 }
 
-/* Background Brand Asta: 1:1 Responsive ke Semua Device */
-body::before {
-  content: "" !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: -999 !important;
-  pointer-events: none !important;
-  background-image: 
-    radial-gradient(circle at 50% 45%, rgba(13, 17, 23, 0.78) 0%, rgba(13, 17, 23, 0.94) 85%),
-    url('/assets/astabrand.png') !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: cover !important;
-}
 
 ::selection {
   background: var(--asta-cyan) !important;

@@ -42,15 +42,24 @@ const ModalContainer = styled.div<{ alignTop?: boolean }>`
     margin-bottom: auto;
 
     & > .close-icon {
-        ${tw`absolute right-0 p-2 text-white cursor-pointer opacity-50 transition-all duration-150 ease-linear hover:opacity-100`};
-        top: -2.5rem;
+        ${tw`absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all duration-150 z-50 select-none`};
+        background: #EF4444 !important;
+        color: #FFFFFF !important;
+        border: 2.5px solid #000000 !important;
+        box-shadow: 2px 2px 0px #000000 !important;
 
         &:hover {
-            ${tw`transform rotate-90`}
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 3px 3px 0px #000000 !important;
+        }
+
+        &:active {
+            transform: scale(0.95);
+            box-shadow: 0px 0px 0px #000000 !important;
         }
 
         & > svg {
-            ${tw`w-6 h-6`};
+            ${tw`w-5 h-5`};
         }
     }
 `;
@@ -103,7 +112,13 @@ const Modal: React.FC<ModalProps> = ({
             >
                 <ModalContainer alignTop={top}>
                     {isDismissable && (
-                        <div className={'close-icon'} onClick={() => setRender(false)}>
+                        <div
+                            className={'close-icon'}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setRender(false);
+                            }}
+                        >
                             <svg
                                 xmlns={'http://www.w3.org/2000/svg'}
                                 fill={'none'}
@@ -113,7 +128,7 @@ const Modal: React.FC<ModalProps> = ({
                                 <path
                                     strokeLinecap={'round'}
                                     strokeLinejoin={'round'}
-                                    strokeWidth={'2'}
+                                    strokeWidth={'2.5'}
                                     d={'M6 18L18 6M6 6l12 12'}
                                 />
                             </svg>
