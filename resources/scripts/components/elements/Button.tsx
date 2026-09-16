@@ -11,85 +11,89 @@ interface Props {
 }
 
 const ButtonStyle = styled.button<Omit<Props, 'isLoading'>>`
-    ${tw`relative inline-block rounded p-2 uppercase tracking-wide text-sm transition-all duration-150 border`};
+    ${tw`relative inline-flex items-center justify-center rounded p-2 font-extrabold uppercase tracking-wider text-sm cursor-pointer`};
+    border: 2.5px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
 
-    ${(props) =>
+    &:hover:not(:disabled) {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000000;
+    }
+
+    &:active:not(:disabled) {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px #000000;
+    }
+
+    ${(props: Omit<Props, 'isLoading'>) =>
         ((!props.isSecondary && !props.color) || props.color === 'primary') &&
-        css<Props>`
-            ${(props) => !props.isSecondary && tw`bg-primary-500 border-primary-600 border text-primary-50`};
+        css`
+            background-color: #00D2FF;
+            color: #000000;
 
             &:hover:not(:disabled) {
-                ${tw`bg-primary-600 border-primary-700`};
+                background-color: #33DCFF;
             }
         `};
 
-    ${(props) =>
+    ${(props: Omit<Props, 'isLoading'>) =>
         props.color === 'grey' &&
         css`
-            ${tw`border-neutral-600 bg-neutral-500 text-neutral-50`};
+            background-color: var(--neo-surface-light);
+            color: var(--neo-text);
 
             &:hover:not(:disabled) {
-                ${tw`bg-neutral-600 border-neutral-700`};
+                background-color: var(--neo-surface-hover);
             }
         `};
 
-    ${(props) =>
+    ${(props: Omit<Props, 'isLoading'>) =>
         props.color === 'green' &&
-        css<Props>`
-            ${tw`border-green-600 bg-green-500 text-green-50`};
+        css`
+            background-color: #10B981;
+            color: #000000;
 
             &:hover:not(:disabled) {
-                ${tw`bg-green-600 border-green-700`};
+                background-color: #34D399;
             }
-
-            ${(props) =>
-                props.isSecondary &&
-                css`
-                    &:active:not(:disabled) {
-                        ${tw`bg-green-600 border-green-700`};
-                    }
-                `};
         `};
 
-    ${(props) =>
+    ${(props: Omit<Props, 'isLoading'>) =>
         props.color === 'red' &&
-        css<Props>`
-            ${tw`border-red-600 bg-red-500 text-red-50`};
+        css`
+            background-color: #EF4444;
+            color: #FFFFFF;
 
             &:hover:not(:disabled) {
-                ${tw`bg-red-600 border-red-700`};
+                background-color: #F87171;
             }
-
-            ${(props) =>
-                props.isSecondary &&
-                css`
-                    &:active:not(:disabled) {
-                        ${tw`bg-red-600 border-red-700`};
-                    }
-                `};
         `};
 
-    ${(props) => props.size === 'xsmall' && tw`px-2 py-1 text-xs`};
-    ${(props) => (!props.size || props.size === 'small') && tw`px-4 py-2`};
-    ${(props) => props.size === 'large' && tw`p-4 text-sm`};
-    ${(props) => props.size === 'xlarge' && tw`p-4 w-full`};
+    ${(props: Omit<Props, 'isLoading'>) => props.size === 'xsmall' && tw`px-2 py-1 text-xs`};
+    ${(props: Omit<Props, 'isLoading'>) => (!props.size || props.size === 'small') && tw`px-4 py-2`};
+    ${(props: Omit<Props, 'isLoading'>) => props.size === 'large' && tw`p-4 text-base`};
+    ${(props: Omit<Props, 'isLoading'>) => props.size === 'xlarge' && tw`p-4 w-full`};
 
-    ${(props) =>
+    ${(props: Omit<Props, 'isLoading'>) =>
         props.isSecondary &&
-        css<Props>`
-            ${tw`border-neutral-600 bg-transparent text-neutral-200`};
+        css`
+            background-color: var(--neo-surface-light);
+            color: var(--neo-text);
 
             &:hover:not(:disabled) {
-                ${tw`border-neutral-500 text-neutral-100`};
-                ${(props) => props.color === 'red' && tw`bg-red-500 border-red-600 text-red-50`};
-                ${(props) => props.color === 'primary' && tw`bg-primary-500 border-primary-600 text-primary-50`};
-                ${(props) => props.color === 'green' && tw`bg-green-500 border-green-600 text-green-50`};
+                background-color: var(--neo-surface-hover);
+                ${props.color === 'red' && `background-color: #EF4444 !important; color: #FFFFFF !important;`};
+                ${props.color === 'primary' && `background-color: #00D2FF !important; color: #000000 !important;`};
+                ${props.color === 'green' && `background-color: #10B981 !important; color: #000000 !important;`};
             }
         `};
 
     &:disabled {
-        opacity: 0.55;
-        cursor: default;
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+        box-shadow: 2px 2px 0px #000000 !important;
     }
 `;
 

@@ -39,27 +39,32 @@ const checkboxStyle = css<Props>`
 const inputStyle = css<Props>`
     // Reset to normal styling.
     resize: none;
-    ${tw`appearance-none outline-none w-full min-w-0`};
-    ${tw`p-3 border-2 rounded text-sm transition-all duration-150`};
-    ${tw`bg-neutral-600 border-neutral-500 hover:border-neutral-400 text-neutral-200 shadow-none focus:ring-0`};
+    ${tw`appearance-none outline-none w-full min-w-0 font-medium`};
+    ${tw`p-3 rounded text-sm transition-all duration-100`};
+    background-color: var(--neo-surface-light);
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 0px #000000;
+    color: var(--neo-text);
 
     & + .input-help {
-        ${tw`mt-1 text-xs`};
-        ${(props) => (props.hasError ? tw`text-red-200` : tw`text-neutral-200`)};
+        ${tw`mt-1.5 text-xs font-bold`};
+        ${(props) => (props.hasError ? tw`text-red-400` : tw`text-neutral-400`)};
     }
 
     &:required,
     &:invalid {
-        ${tw`shadow-none`};
+        box-shadow: 2px 2px 0px #000000;
     }
 
     &:not(:disabled):not(:read-only):focus {
-        ${tw`shadow-md border-primary-300 ring-2 ring-primary-400 ring-opacity-50`};
-        ${(props) => props.hasError && tw`border-red-300 ring-red-200`};
+        border-color: #00D2FF;
+        box-shadow: 4px 4px 0px #000000;
+        background-color: var(--neo-surface);
     }
 
     &:disabled {
-        ${tw`opacity-75`};
+        ${tw`opacity-60 cursor-not-allowed`};
+        box-shadow: none;
     }
 
     ${(props) => props.isLight && light};

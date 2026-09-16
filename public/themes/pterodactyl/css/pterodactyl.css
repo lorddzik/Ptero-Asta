@@ -23,7 +23,7 @@
  @import 'checkbox.css';
 
 .login-page {
-    background: #10529f;
+    background: var(--neo-bg, #0D1117);
 }
 
 #login-position-elements {

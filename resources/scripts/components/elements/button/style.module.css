@@ -39,8 +39,9 @@
     }
 
     &.secondary {
-        @apply text-white bg-transparent;
-        border-color: #30363D !important;
+        @apply bg-transparent;
+        color: var(--neo-text) !important;
+        border-color: #000000 !important;
         box-shadow: 3px 3px 0px #000000 !important;
 
         &:disabled {
@@ -89,24 +90,24 @@
 }
 
 .text {
-    background-color: #21262D !important;
-    color: #FFFFFF !important;
+    background-color: var(--neo-surface-light) !important;
+    color: var(--neo-text) !important;
 
     &:hover:not(:disabled) {
-        background-color: #30363D !important;
+        background-color: var(--neo-surface-hover) !important;
     }
 
     &.secondary {
         background-color: transparent !important;
-        color: #FFFFFF !important;
+        color: var(--neo-text) !important;
 
         &:hover:not(:disabled) {
-            background-color: #21262D !important;
+            background-color: var(--neo-surface-light) !important;
         }
     }
 
     &:disabled {
-        background-color: #21262D !important;
+        background-color: var(--neo-surface-light) !important;
         opacity: 0.45;
     }
 }

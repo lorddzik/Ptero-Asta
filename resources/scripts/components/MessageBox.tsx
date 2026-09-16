@@ -10,38 +10,41 @@ interface Props {
     type?: FlashMessageType;
 }
 
-const styling = (type?: FlashMessageType): TwStyle | string => {
+const styling = (type?: FlashMessageType): string => {
     switch (type) {
         case 'error':
-            return tw`bg-red-600 border-red-800`;
+            return 'background-color: #EF4444; color: #FFFFFF;';
         case 'info':
-            return tw`bg-primary-600 border-primary-800`;
+            return 'background-color: #00D2FF; color: #000000;';
         case 'success':
-            return tw`bg-green-600 border-green-800`;
+            return 'background-color: #10B981; color: #000000;';
         case 'warning':
-            return tw`bg-yellow-600 border-yellow-800`;
+            return 'background-color: #FACC15; color: #000000;';
         default:
-            return '';
+            return 'background-color: var(--neo-surface-light); color: var(--neo-text);';
     }
 };
 
-const getBackground = (type?: FlashMessageType): TwStyle | string => {
+const getBackground = (type?: FlashMessageType): string => {
     switch (type) {
         case 'error':
-            return tw`bg-red-500`;
+            return 'background-color: #000000; color: #EF4444;';
         case 'info':
-            return tw`bg-primary-500`;
+            return 'background-color: #000000; color: #00D2FF;';
         case 'success':
-            return tw`bg-green-500`;
+            return 'background-color: #000000; color: #10B981;';
         case 'warning':
-            return tw`bg-yellow-500`;
+            return 'background-color: #000000; color: #FACC15;';
         default:
-            return '';
+            return 'background-color: #000000; color: #FFFFFF;';
     }
 };
 
 const Container = styled.div<{ $type?: FlashMessageType }>`
-    ${tw`p-2 border items-center leading-normal rounded flex w-full text-sm text-white`};
+    ${tw`p-2.5 items-center leading-normal flex w-full text-sm font-semibold`};
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 4px;
     ${(props) => styling(props.$type)};
 `;
 Container.displayName = 'MessageBox.Container';

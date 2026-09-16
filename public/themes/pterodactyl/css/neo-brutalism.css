@@ -863,12 +863,12 @@ code {
 }
 
 /* Dialogs & Modal Popups */
-[role="dialog"], .dialog-content {
+[role="dialog"], .dialog-content, [class*="ModalContainer"] > div {
   background-color: var(--neo-surface) !important;
-  border: 3px solid #000000 !important;
-  box-shadow: 8px 8px 0px #000000 !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 6px 6px 0px #000000 !important;
   border-radius: 8px !important;
-  color: #FFFFFF !important;
+  color: var(--neo-text) !important;
 }
 
 /* CodeMirror Editor Container */
@@ -891,14 +891,14 @@ input:not([type="checkbox"]):not([type="radio"]), select, textarea {
   box-shadow: 2px 2px 0px #000000 !important;
   border-radius: 4px !important;
   background-color: var(--neo-surface-light) !important;
-  color: #FFFFFF !important;
+  color: var(--neo-text) !important;
   transition: all 0.12s ease !important;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):focus, select:focus, textarea:focus {
   border-color: var(--asta-cyan) !important;
   box-shadow: 4px 4px 0px var(--asta-cyan) !important;
-  background-color: #1A222D !important;
+  background-color: var(--neo-surface-hover) !important;
   outline: none !important;
 }
 
@@ -908,4 +908,93 @@ input:not([type="checkbox"]):not([type="radio"]):focus, select:focus, textarea:f
   box-shadow: 4px 4px 0px var(--asta-cyan) !important;
   border-radius: 6px !important;
 }
+
+/* Alerts, Banners & Flash Messages */
+.alert, [role="alert"], [class*="FlashMessage"] {
+  border: 2.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+
+.alert-warning, [class*="Alert__warning"], [class*="alert-warning"] {
+  background-color: var(--asta-yellow) !important;
+  color: #000000 !important;
+}
+
+.alert-danger, [class*="Alert__danger"], [class*="alert-danger"] {
+  background-color: var(--asta-red) !important;
+  color: #FFFFFF !important;
+}
+
+.alert-success, [class*="Alert__success"], [class*="alert-success"] {
+  background-color: var(--asta-green) !important;
+  color: #000000 !important;
+}
+
+.alert-info, [class*="Alert__info"], [class*="alert-info"] {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+}
+
+/* Dropdown Menus & Context Menus */
+[class*="DropdownMenu"], [class*="ContextMenu"], [class*="dropdown-menu"] {
+  background-color: var(--neo-surface) !important;
+  border: 2.5px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  border-radius: 6px !important;
+  color: var(--neo-text) !important;
+  overflow: hidden;
+}
+
+[class*="DropdownMenu"] a, [class*="ContextMenu"] a, [class*="dropdown-menu"] > li > a {
+  color: var(--neo-text) !important;
+  transition: all 0.1s ease;
+}
+
+[class*="DropdownMenu"] a:hover, [class*="ContextMenu"] a:hover, [class*="dropdown-menu"] > li > a:hover {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+}
+
+/* Modal Inner Field Wrappers */
+[class*="shadow-inner"], div[class*="shadow-inner"] {
+  background-color: var(--neo-surface-light) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  border-radius: 6px !important;
+}
+
+/* Pagination Buttons */
+[class*="PaginationFooter"] button, .pagination > li > a, .pagination > li > span {
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  background-color: var(--neo-surface-light) !important;
+  color: var(--neo-text) !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+  transition: all 0.1s ease !important;
+}
+
+[class*="PaginationFooter"] button:hover:not(:disabled),
+.pagination > li > a:hover,
+.pagination > li.active > a,
+.pagination > li.active > span {
+  background-color: var(--asta-cyan) !important;
+  color: #000000 !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+}
+
+/* Monospace & Invocation Blocks */
+p.font-mono, pre, code {
+  border: 1.5px solid #000000 !important;
+  border-radius: 4px !important;
+}
+
+html.theme-light p.font-mono, html.theme-light pre {
+  background-color: #E2E8F0 !important;
+  color: #0B0F17 !important;
+}
+
 

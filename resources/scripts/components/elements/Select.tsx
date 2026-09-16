@@ -6,12 +6,22 @@ interface Props {
 }
 
 const Select = styled.select<Props>`
-    ${tw`shadow-none block p-3 pr-8 rounded border w-full text-sm transition-colors duration-150 ease-linear`};
+    ${tw`block p-3 pr-8 rounded text-sm transition-all duration-100 font-medium w-full`};
+    background-color: var(--neo-surface-light);
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 0px #000000;
+    color: var(--neo-text);
 
     &,
     &:hover:not(:disabled),
     &:focus {
-        ${tw`outline-none`};
+        outline: none;
+    }
+
+    &:focus {
+        border-color: #00D2FF;
+        box-shadow: 4px 4px 0px #000000;
+        background-color: var(--neo-surface);
     }
 
     -webkit-appearance: none;
@@ -25,16 +35,10 @@ const Select = styled.select<Props>`
         display: none;
     }
 
-    ${(props) =>
+    ${(props: Props) =>
         !props.hideDropdownArrow &&
         css`
-            ${tw`bg-neutral-600 border-neutral-500 text-neutral-200`};
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='%23C3D1DF' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z'/%3e%3c/svg%3e ");
-
-            &:hover:not(:disabled),
-            &:focus {
-                ${tw`border-neutral-400`};
-            }
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='%2300D2FF' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z'/%3e%3c/svg%3e ");
         `};
 `;
 

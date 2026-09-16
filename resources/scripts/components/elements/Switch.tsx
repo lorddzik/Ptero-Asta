@@ -12,26 +12,31 @@ const ToggleContainer = styled.div`
         ${tw`hidden`};
 
         &:checked + label {
-            ${tw`bg-primary-500 border-primary-700 shadow-none`};
+            background-color: #00D2FF;
+            border-color: #000000;
+            box-shadow: 2px 2px 0px #000000;
         }
 
         &:checked + label:before {
             right: 0.125rem;
+            background-color: #000000;
         }
     }
 
     & > label {
-        ${tw`mb-0 block overflow-hidden cursor-pointer bg-neutral-400 border border-neutral-700 rounded-full h-6 shadow-inner`};
-        transition: all 75ms linear;
+        ${tw`mb-0 block overflow-hidden cursor-pointer h-6 rounded-full transition-all duration-100`};
+        background-color: var(--neo-surface-light);
+        border: 2px solid #000000;
+        box-shadow: 2px 2px 0px #000000;
 
         &::before {
-            ${tw`absolute block bg-white border h-5 w-5 rounded-full`};
+            ${tw`absolute block h-4 w-4 rounded-full`};
+            background-color: #FFFFFF;
+            border: 1.5px solid #000000;
             top: 0.125rem;
             right: calc(50% + 0.125rem);
-            //width: 1.25rem;
-            //height: 1.25rem;
             content: '';
-            transition: all 75ms ease-in;
+            transition: all 100ms ease;
         }
     }
 `;

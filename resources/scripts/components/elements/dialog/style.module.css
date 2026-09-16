@@ -3,12 +3,15 @@
 }
 
 .panel {
-    @apply relative bg-gray-600 rounded max-w-xl w-full mx-auto shadow-lg text-left;
-    @apply ring-4 ring-gray-800 ring-opacity-80;
+    @apply relative rounded-md max-w-xl w-full mx-auto text-left overflow-hidden;
+    background-color: var(--neo-surface) !important;
+    border: 2.5px solid #000000 !important;
+    box-shadow: 6px 6px 0px #000000 !important;
 }
 
 .title {
-    @apply font-header text-xl font-medium mb-2 text-gray-50 pr-4;
+    @apply font-header text-xl font-extrabold uppercase tracking-wide mb-2 pr-4;
+    color: var(--neo-text) !important;
 }
 
 .close_icon {

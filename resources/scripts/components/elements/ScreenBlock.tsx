@@ -44,7 +44,13 @@ const ScreenBlock = ({ title, image, message, onBack, onRetry }: ScreenBlockProp
     <PageContentBlock>
         <div css={tw`flex justify-center`}>
             <div
-                css={tw`w-full sm:w-3/4 md:w-1/2 p-12 md:p-20 bg-neutral-100 rounded-lg shadow-lg text-center relative`}
+                style={{
+                    backgroundColor: 'var(--neo-surface)',
+                    border: '2.5px solid #000000',
+                    boxShadow: '6px 6px 0px #000000',
+                    borderRadius: '8px',
+                }}
+                css={tw`w-full sm:w-3/4 md:w-1/2 p-12 md:p-20 text-center relative`}
             >
                 {(typeof onBack === 'function' || typeof onRetry === 'function') && (
                     <div css={tw`absolute left-0 top-0 ml-4 mt-4`}>
@@ -57,8 +63,8 @@ const ScreenBlock = ({ title, image, message, onBack, onRetry }: ScreenBlockProp
                     </div>
                 )}
                 <img src={image} css={tw`w-2/3 h-auto select-none mx-auto`} />
-                <h2 css={tw`mt-10 text-neutral-900 font-bold text-4xl`}>{title}</h2>
-                <p css={tw`text-sm text-neutral-700 mt-2`}>{message}</p>
+                <h2 css={tw`mt-10 font-black text-4xl`} style={{ color: 'var(--neo-text)' }}>{title}</h2>
+                <p css={tw`text-sm mt-2`} style={{ color: 'var(--neo-text-muted)' }}>{message}</p>
             </div>
         </div>
     </PageContentBlock>
