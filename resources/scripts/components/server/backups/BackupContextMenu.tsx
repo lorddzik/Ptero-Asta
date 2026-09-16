@@ -138,8 +138,16 @@ export default ({ backup }: Props) => {
                     Your server will be stopped. You will not be able to control the power state, access the file
                     manager, or create additional backups until completed.
                 </p>
-                <p css={tw`mt-4 -mb-2 bg-gray-700 p-3 rounded`}>
-                    <label htmlFor={'restore_truncate'} css={tw`text-base flex items-center cursor-pointer`}>
+                <p
+                    css={tw`mt-4 -mb-2 p-3 rounded`}
+                    style={{
+                        backgroundColor: 'var(--neo-surface-light)',
+                        border: '2px solid #000000',
+                        boxShadow: '2px 2px 0px #000000',
+                        color: 'var(--neo-text)',
+                    }}
+                >
+                    <label htmlFor={'restore_truncate'} css={tw`text-base flex items-center cursor-pointer font-bold`}>
                         <Input
                             type={'checkbox'}
                             css={tw`text-red-500! w-5! h-5! mr-2`}
@@ -167,7 +175,8 @@ export default ({ backup }: Props) => {
                     renderToggle={(onClick) => (
                         <button
                             onClick={onClick}
-                            css={tw`text-gray-200 transition-colors duration-150 hover:text-gray-100 p-2`}
+                            css={tw`transition-colors duration-150 p-2`}
+                            style={{ color: 'var(--neo-text)' }}
                         >
                             <FontAwesomeIcon icon={faEllipsisH} />
                         </button>

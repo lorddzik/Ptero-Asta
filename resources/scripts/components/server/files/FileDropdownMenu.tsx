@@ -36,9 +36,20 @@ import { Dialog } from '@/components/elements/dialog';
 type ModalType = 'rename' | 'move' | 'chmod';
 
 const StyledRow = styled.div<{ $danger?: boolean }>`
-    ${tw`p-2 flex items-center rounded`};
+    ${tw`p-2 flex items-center rounded font-medium`};
+    color: var(--neo-text);
+    cursor: pointer;
+    transition: 150ms all ease;
+
     ${(props) =>
-        props.$danger ? tw`hover:bg-red-100 hover:text-red-700` : tw`hover:bg-neutral-100 hover:text-neutral-700`};
+        props.$danger
+            ? tw`hover:bg-red-100 hover:text-red-700`
+            : `
+                &:hover {
+                    background-color: var(--neo-surface-hover);
+                    color: var(--neo-text);
+                }
+            `};
 `;
 
 interface RowProps extends React.HTMLAttributes<HTMLDivElement> {

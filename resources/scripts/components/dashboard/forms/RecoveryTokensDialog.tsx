@@ -29,13 +29,21 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
         >
             <Dialog.Icon position={'container'} type={'success'} />
             <CopyOnClick text={tokens.join('\n')} showInNotification={false}>
-                <pre className={'bg-gray-800 rounded p-2 mt-6'}>
+                <pre
+                    className={'rounded p-3 mt-6 font-mono text-sm leading-relaxed'}
+                    style={{
+                        backgroundColor: 'var(--neo-surface-light)',
+                        color: 'var(--neo-text)',
+                        border: '2px solid #000000',
+                        boxShadow: '3px 3px 0px #000000',
+                    }}
+                >
                     {grouped.map((value) => (
                         <span key={value.join('_')} className={'block'}>
                             {value[0]}
-                            <span className={'mx-2 selection:bg-gray-800'}>&nbsp;</span>
+                            <span className={'mx-2'}>&nbsp;</span>
                             {value[1]}
-                            <span className={'selection:bg-gray-800'}>&nbsp;</span>
+                            <span>&nbsp;</span>
                         </span>
                     ))}
                 </pre>

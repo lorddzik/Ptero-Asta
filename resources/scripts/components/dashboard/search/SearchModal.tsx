@@ -22,10 +22,16 @@ interface Values {
 }
 
 const ServerResult = styled(Link)`
-    ${tw`flex items-center bg-neutral-900 p-4 rounded border-l-4 border-neutral-900 no-underline transition-all duration-150`};
+    ${tw`flex items-center p-4 rounded no-underline transition-all duration-150`};
+    background-color: var(--neo-surface);
+    color: var(--neo-text);
+    border: 2.5px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
 
     &:hover {
-        ${tw`shadow border-cyan-500`};
+        background-color: var(--neo-surface-hover);
+        border-color: #00D2FF;
+        box-shadow: 5px 5px 0px #000000;
     }
 
     &:not(:last-of-type) {

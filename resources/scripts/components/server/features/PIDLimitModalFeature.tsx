@@ -60,15 +60,35 @@ const PIDLimitModalFeature = () => {
                 <>
                     <div css={tw`mt-4 sm:flex items-center`}>
                         <FontAwesomeIcon css={tw`pr-4`} icon={faExclamationTriangle} color={'orange'} size={'4x'} />
-                        <h2 css={tw`text-2xl mb-4 text-neutral-100 `}>Memory or process limit reached...</h2>
+                        <h2 css={tw`text-2xl mb-4 font-bold`} style={{ color: 'var(--neo-text)' }}>Memory or process limit reached...</h2>
                     </div>
-                    <p css={tw`mt-4`}>This server has reached the maximum process or memory limit.</p>
-                    <p css={tw`mt-4`}>
-                        Increasing <code css={tw`font-mono bg-neutral-900`}>container_pid_limit</code> in the wings
-                        configuration, <code css={tw`font-mono bg-neutral-900`}>config.yml</code>, might help resolve
-                        this issue.
+                    <p css={tw`mt-4`} style={{ color: 'var(--neo-text)' }}>This server has reached the maximum process or memory limit.</p>
+                    <p css={tw`mt-4`} style={{ color: 'var(--neo-text)' }}>
+                        Increasing{' '}
+                        <code
+                            css={tw`font-mono rounded py-0.5 px-1.5`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface-light)',
+                                color: 'var(--neo-text)',
+                                border: '1.5px solid #000000',
+                            }}
+                        >
+                            container_pid_limit
+                        </code>{' '}
+                        in the wings configuration,{' '}
+                        <code
+                            css={tw`font-mono rounded py-0.5 px-1.5`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface-light)',
+                                color: 'var(--neo-text)',
+                                border: '1.5px solid #000000',
+                            }}
+                        >
+                            config.yml
+                        </code>
+                        , might help resolve this issue.
                     </p>
-                    <p css={tw`mt-4`}>
+                    <p css={tw`mt-4`} style={{ color: 'var(--neo-text)' }}>
                         <b>Note: Wings must be restarted for the configuration file changes to take effect</b>
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
@@ -81,14 +101,21 @@ const PIDLimitModalFeature = () => {
                 <>
                     <div css={tw`mt-4 sm:flex items-center`}>
                         <FontAwesomeIcon css={tw`pr-4`} icon={faExclamationTriangle} color={'orange'} size={'4x'} />
-                        <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Possible resource limit reached...</h2>
+                        <h2 css={tw`text-2xl mb-4 font-bold`} style={{ color: 'var(--neo-text)' }}>Possible resource limit reached...</h2>
                     </div>
-                    <p css={tw`mt-4`}>
+                    <p css={tw`mt-4`} style={{ color: 'var(--neo-text)' }}>
                         This server is attempting to use more resources than allocated. Please contact the administrator
                         and give them the error below.
                     </p>
                     <p css={tw`mt-4`}>
-                        <code css={tw`font-mono bg-neutral-900`}>
+                        <code
+                            css={tw`font-mono rounded p-2 block`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface-light)',
+                                color: 'var(--neo-text)',
+                                border: '1.5px solid #000000',
+                            }}
+                        >
                             pthread_create failed, Possibly out of memory or process/resource limits reached
                         </code>
                     </p>

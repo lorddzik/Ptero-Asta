@@ -24,9 +24,17 @@ class ErrorBoundary extends React.Component<{}, State> {
     render() {
         return this.state.hasError ? (
             <div css={tw`flex items-center justify-center w-full my-4`}>
-                <div css={tw`flex items-center bg-neutral-900 rounded p-3 text-red-500`}>
-                    <Icon icon={faExclamationTriangle} css={tw`h-4 w-auto mr-2`} />
-                    <p css={tw`text-sm text-neutral-100`}>
+                <div
+                    css={tw`flex items-center rounded p-3`}
+                    style={{
+                        backgroundColor: 'var(--neo-surface-light)',
+                        border: '2px solid #000000',
+                        boxShadow: '3px 3px 0px #000000',
+                        color: 'var(--neo-text)',
+                    }}
+                >
+                    <Icon icon={faExclamationTriangle} css={tw`h-4 w-auto mr-2 text-red-500`} />
+                    <p css={tw`text-sm font-medium`} style={{ color: 'var(--neo-text)' }}>
                         An error was encountered by the application while rendering this view. Try refreshing the page.
                     </p>
                 </div>

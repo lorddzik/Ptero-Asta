@@ -90,11 +90,15 @@ export default ({ children, ...props }: Props) => {
                         {...getFloatingProps({
                             ref: floating,
                             className:
-                                'bg-gray-900 text-sm text-gray-200 px-3 py-2 rounded pointer-events-none max-w-[24rem]',
+                                'text-sm font-medium px-3 py-1.5 rounded pointer-events-none max-w-[24rem]',
                             style: {
                                 position: strategy,
                                 top: `${y || 0}px`,
                                 left: `${x || 0}px`,
+                                backgroundColor: 'var(--neo-surface)',
+                                color: 'var(--neo-text)',
+                                border: '2px solid #000000',
+                                boxShadow: '3px 3px 0px #000000',
                             },
                         })}
                     >
@@ -106,8 +110,10 @@ export default ({ children, ...props }: Props) => {
                                     transform: `translate(${Math.round(ax || 0)}px, ${Math.round(
                                         ay || 0
                                     )}px) rotate(45deg)`,
+                                    backgroundColor: 'var(--neo-surface)',
+                                    border: '1px solid #000000',
                                 }}
-                                className={classNames('absolute bg-gray-900 w-3 h-3', side)}
+                                className={classNames('absolute w-2.5 h-2.5', side)}
                             />
                         )}
                     </motion.div>

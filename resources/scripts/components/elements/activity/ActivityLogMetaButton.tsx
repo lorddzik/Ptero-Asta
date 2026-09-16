@@ -10,9 +10,13 @@ export default ({ meta }: { meta: Record<string, unknown> }) => {
         <div className={'self-center md:px-4'}>
             <Dialog open={open} onClose={() => setOpen(false)} hideCloseIcon title={'Metadata'}>
                 <pre
-                    className={
-                        'bg-gray-900 rounded p-2 font-mono text-sm leading-relaxed overflow-x-scroll whitespace-pre-wrap'
-                    }
+                    className={'rounded p-3 font-mono text-sm leading-relaxed overflow-x-scroll whitespace-pre-wrap'}
+                    style={{
+                        backgroundColor: 'var(--neo-surface-light)',
+                        color: 'var(--neo-text)',
+                        border: '2px solid #000000',
+                        boxShadow: '3px 3px 0px #000000',
+                    }}
                 >
                     {JSON.stringify(meta, null, 2)}
                 </pre>

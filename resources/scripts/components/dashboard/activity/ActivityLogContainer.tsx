@@ -47,7 +47,15 @@ export default () => {
             {!data && isValidating ? (
                 <Spinner centered />
             ) : (
-                <div className={'bg-gray-700'}>
+                <div
+                    className={'rounded-md overflow-hidden'}
+                    style={{
+                        backgroundColor: 'var(--neo-surface)',
+                        border: '2.5px solid #000000',
+                        boxShadow: '4px 4px 0px #000000',
+                        color: 'var(--neo-text)',
+                    }}
+                >
                     {data?.items.map((activity) => (
                         <ActivityLogEntry key={activity.id} activity={activity}>
                             {typeof activity.properties.useragent === 'string' && (

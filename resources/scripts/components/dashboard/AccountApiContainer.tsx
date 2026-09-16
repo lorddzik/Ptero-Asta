@@ -67,18 +67,27 @@ export default () => {
                         keys.map((key, index) => (
                             <GreyRowBox
                                 key={key.identifier}
-                                css={[tw`bg-neutral-600 flex items-center`, index > 0 && tw`mt-2`]}
+                                css={[tw`flex items-center`, index > 0 && tw`mt-2`]}
                             >
-                                <FontAwesomeIcon icon={faKey} css={tw`text-neutral-300`} />
+                                <FontAwesomeIcon icon={faKey} css={tw`text-neutral-400`} />
                                 <div css={tw`ml-4 flex-1 overflow-hidden`}>
-                                    <p css={tw`text-sm break-words`}>{key.description}</p>
-                                    <p css={tw`text-2xs text-neutral-300 uppercase`}>
+                                    <p css={tw`text-sm font-bold break-words`} style={{ color: 'var(--neo-text)' }}>{key.description}</p>
+                                    <p css={tw`text-2xs uppercase`} style={{ color: 'var(--neo-text-muted)' }}>
                                         Last used:&nbsp;
                                         {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : 'Never'}
                                     </p>
                                 </div>
                                 <p css={tw`text-sm ml-4 hidden md:block`}>
-                                    <code css={tw`font-mono py-1 px-2 bg-neutral-900 rounded`}>{key.identifier}</code>
+                                    <code
+                                        css={tw`font-mono py-1 px-2 rounded`}
+                                        style={{
+                                            backgroundColor: 'var(--neo-surface-light)',
+                                            color: 'var(--neo-text)',
+                                            border: '1.5px solid #000000',
+                                        }}
+                                    >
+                                        {key.identifier}
+                                    </code>
                                 </p>
                                 <button css={tw`ml-4 p-2 text-sm`} onClick={() => setDeleteIdentifier(key.identifier)}>
                                     <FontAwesomeIcon

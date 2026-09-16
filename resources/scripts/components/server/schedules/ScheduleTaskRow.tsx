@@ -84,16 +84,21 @@ export default ({ schedule, task }: Props) => {
             >
                 Are you sure you want to delete this task? This action cannot be undone.
             </ConfirmationModal>
-            <FontAwesomeIcon icon={icon} css={tw`text-lg text-white hidden md:block`} />
+            <FontAwesomeIcon icon={icon} css={tw`text-lg hidden md:block`} style={{ color: 'var(--neo-text)' }} />
             <div css={tw`flex-none sm:flex-1 w-full sm:w-auto overflow-x-auto`}>
-                <p css={tw`md:ml-6 text-neutral-200 uppercase text-sm`}>{title}</p>
+                <p css={tw`md:ml-6 uppercase text-sm font-bold`} style={{ color: 'var(--neo-text)' }}>{title}</p>
                 {task.payload && (
                     <div css={tw`md:ml-6 mt-2`}>
                         {task.action === 'backup' && (
-                            <p css={tw`text-xs uppercase text-neutral-400 mb-1`}>Ignoring files & folders:</p>
+                            <p css={tw`text-xs uppercase mb-1`} style={{ color: 'var(--neo-text-muted)' }}>Ignoring files & folders:</p>
                         )}
                         <div
-                            css={tw`font-mono bg-neutral-800 rounded py-1 px-2 text-sm w-auto inline-block whitespace-pre-wrap break-all`}
+                            css={tw`font-mono rounded py-1 px-2 text-sm w-auto inline-block whitespace-pre-wrap break-all`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface-light)',
+                                color: 'var(--neo-text)',
+                                border: '1.5px solid #000000',
+                            }}
                         >
                             {task.payload}
                         </div>
@@ -103,16 +108,22 @@ export default ({ schedule, task }: Props) => {
             <div css={tw`mt-3 sm:mt-0 flex items-center w-full sm:w-auto`}>
                 {task.continueOnFailure && (
                     <div css={tw`mr-6`}>
-                        <div css={tw`flex items-center px-2 py-1 bg-yellow-500 text-yellow-800 text-sm rounded-full`}>
-                            <Icon icon={faArrowCircleDown} css={tw`w-3 h-3 mr-2`} />
+                        <div
+                            css={tw`flex items-center px-2 py-1 text-xs font-bold rounded-full`}
+                            style={{ backgroundColor: '#FDE047', color: '#000000', border: '1.5px solid #000000' }}
+                        >
+                            <Icon icon={faArrowCircleDown} css={tw`w-3 h-3 mr-1 text-black`} />
                             Continues on Failure
                         </div>
                     </div>
                 )}
                 {task.sequenceId > 1 && task.timeOffset > 0 && (
                     <div css={tw`mr-6`}>
-                        <div css={tw`flex items-center px-2 py-1 bg-neutral-500 text-sm rounded-full`}>
-                            <Icon icon={faClock} css={tw`w-3 h-3 mr-2`} />
+                        <div
+                            css={tw`flex items-center px-2 py-1 text-xs font-bold rounded-full`}
+                            style={{ backgroundColor: 'var(--neo-surface-light)', color: 'var(--neo-text)', border: '1.5px solid #000000' }}
+                        >
+                            <Icon icon={faClock} css={tw`w-3 h-3 mr-1`} />
                             {task.timeOffset}s later
                         </div>
                     </div>
@@ -121,7 +132,8 @@ export default ({ schedule, task }: Props) => {
                     <button
                         type={'button'}
                         aria-label={'Edit scheduled task'}
-                        css={tw`block text-sm p-2 text-neutral-500 hover:text-neutral-100 transition-colors duration-150 mr-4 ml-auto sm:ml-0`}
+                        css={tw`block text-sm p-2 transition-colors duration-150 mr-4 ml-auto sm:ml-0`}
+                        style={{ color: 'var(--neo-text)' }}
                         onClick={() => setIsEditing(true)}
                     >
                         <FontAwesomeIcon icon={faPencilAlt} />

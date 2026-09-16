@@ -13,14 +13,13 @@ export default styled.div<{ $hoverable?: boolean }>`
         props.$hoverable !== false &&
         `
         &:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px #000000;
-            border-color: #000000;
+            border-color: #00D2FF !important;
+            box-shadow: 6px 6px 0px #000000 !important;
+            background-color: var(--neo-surface-hover) !important;
         }
 
         &:active {
-            transform: translate(2px, 2px);
-            box-shadow: 0px 0px 0px #000000;
+            box-shadow: 2px 2px 0px #000000 !important;
         }
     `};
 

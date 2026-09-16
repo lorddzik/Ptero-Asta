@@ -23,9 +23,16 @@ interface Params {
 }
 
 const CronBox = ({ title, value }: { title: string; value: string }) => (
-    <div css={tw`bg-neutral-700 rounded p-3`}>
-        <p css={tw`text-neutral-300 text-sm`}>{title}</p>
-        <p css={tw`text-xl font-medium text-neutral-100`}>{value}</p>
+    <div
+        css={tw`rounded p-3`}
+        style={{
+            backgroundColor: 'var(--neo-surface-light)',
+            border: '2px solid #000000',
+            boxShadow: '2px 2px 0px #000000',
+        }}
+    >
+        <p css={tw`text-sm font-semibold`} style={{ color: 'var(--neo-text-muted)' }}>{title}</p>
+        <p css={tw`text-xl font-extrabold`} style={{ color: 'var(--neo-text)' }}>{value}</p>
     </div>
 );
 
@@ -84,17 +91,32 @@ export default () => {
                 <Spinner size={'large'} centered />
             ) : (
                 <>
-                    <ScheduleCronRow cron={schedule.cron} css={tw`sm:hidden bg-neutral-700 rounded mb-4 p-3`} />
+                    <ScheduleCronRow
+                        cron={schedule.cron}
+                        css={tw`sm:hidden rounded mb-4 p-3`}
+                        style={{
+                            backgroundColor: 'var(--neo-surface-light)',
+                            border: '2px solid #000000',
+                            boxShadow: '3px 3px 0px #000000',
+                        }}
+                    />
                     <div css={tw`rounded shadow`}>
                         <div
-                            css={tw`sm:flex items-center bg-neutral-900 p-3 sm:p-6 border-b-4 border-neutral-600 rounded-t`}
+                            css={tw`sm:flex items-center p-3 sm:p-6 rounded-t`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface)',
+                                border: '2.5px solid #000000',
+                                borderBottom: '3px solid #000000',
+                                color: 'var(--neo-text)',
+                            }}
                         >
                             <div css={tw`flex-1`}>
-                                <h3 css={tw`flex items-center text-neutral-100 text-2xl`}>
+                                <h3 css={tw`flex items-center text-2xl font-extrabold`} style={{ color: 'var(--neo-text)' }}>
                                     {schedule.name}
                                     {schedule.isProcessing ? (
                                         <span
-                                            css={tw`flex items-center rounded-full px-2 py-px text-xs ml-4 uppercase bg-neutral-600 text-white`}
+                                            css={tw`flex items-center rounded-full px-2 py-px text-xs ml-4 uppercase`}
+                                            style={{ backgroundColor: '#00D2FF', color: '#000000', border: '1.5px solid #000000', fontWeight: 'bold' }}
                                         >
                                             <Spinner css={tw`w-3! h-3! mr-2`} />
                                             Processing
@@ -103,19 +125,19 @@ export default () => {
                                         <ActivePill active={schedule.isActive} />
                                     )}
                                 </h3>
-                                <p css={tw`mt-1 text-sm text-neutral-200`}>
+                                <p css={tw`mt-1 text-sm`} style={{ color: 'var(--neo-text-muted)' }}>
                                     Last run at:&nbsp;
                                     {schedule.lastRunAt ? (
                                         format(schedule.lastRunAt, "MMM do 'at' h:mma")
                                     ) : (
-                                        <span css={tw`text-neutral-300`}>n/a</span>
+                                        <span>n/a</span>
                                     )}
-                                    <span css={tw`ml-4 pl-4 border-l-4 border-neutral-600 py-px`}>
+                                    <span css={tw`ml-4 pl-4 border-l-2 border-black py-px`}>
                                         Next run at:&nbsp;
                                         {schedule.nextRunAt ? (
                                             format(schedule.nextRunAt, "MMM do 'at' h:mma")
                                         ) : (
-                                            <span css={tw`text-neutral-300`}>n/a</span>
+                                            <span>n/a</span>
                                         )}
                                     </span>
                                 </p>
@@ -136,7 +158,15 @@ export default () => {
                             <CronBox title={'Month'} value={schedule.cron.month} />
                             <CronBox title={'Day (Week)'} value={schedule.cron.dayOfWeek} />
                         </div>
-                        <div css={tw`bg-neutral-700 rounded-b`}>
+                        <div
+                            css={tw`rounded-b`}
+                            style={{
+                                backgroundColor: 'var(--neo-surface)',
+                                border: '2.5px solid #000000',
+                                borderTop: 'none',
+                                boxShadow: '4px 4px 0px #000000',
+                            }}
+                        >
                             {schedule.tasks.length > 0
                                 ? schedule.tasks
                                       .sort((a, b) =>

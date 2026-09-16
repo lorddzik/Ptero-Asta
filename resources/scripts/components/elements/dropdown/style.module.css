@@ -2,15 +2,18 @@
   @apply relative inline-block text-left;
 
   & .button {
-    @apply inline-flex justify-center items-center w-full py-2 text-neutral-100 rounded-md;
+    @apply inline-flex justify-center items-center w-full py-2 rounded-md;
     @apply transition-all duration-100;
+    color: var(--neo-text);
 
     &:hover, &[aria-expanded="true"] {
-      @apply bg-neutral-600 text-white;
+      background-color: var(--neo-surface-hover);
+      color: var(--neo-text);
     }
 
     &:focus, &:focus-within, &:active {
-      @apply ring-2 ring-opacity-50 ring-neutral-300 text-white;
+      @apply ring-2 ring-opacity-50 ring-neutral-300;
+      color: var(--neo-text);
     }
 
     & svg {
@@ -23,22 +26,29 @@
   }
 
   & .items_container {
-    @apply absolute right-0 mt-2 origin-top-right bg-neutral-900 rounded z-10;
+    @apply absolute right-0 mt-2 origin-top-right rounded z-10;
+    background-color: var(--neo-surface);
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    color: var(--neo-text);
   }
 }
 
 .menu_item {
   @apply flex items-center rounded w-full px-2 py-2;
+  color: var(--neo-text);
 
   & svg {
-    @apply w-4 h-4 mr-4 text-neutral-300;
+    @apply w-4 h-4 mr-4;
+    color: var(--neo-text);
   }
 
   &:hover, &:focus {
-    @apply bg-blue-500 text-blue-50;
+    background-color: var(--neo-surface-hover);
+    color: var(--neo-text);
 
     & svg {
-      @apply text-blue-50;
+      color: var(--neo-text);
     }
   }
 
@@ -53,6 +63,6 @@
   }
 
   &.disabled {
-    @apply cursor-not-allowed hover:bg-neutral-800 opacity-30 focus:bg-transparent focus:hover:bg-neutral-800;
+    @apply cursor-not-allowed opacity-30 focus:bg-transparent;
   }
 }
