@@ -2,6 +2,7 @@
 
 namespace Pterodactyl\Http\Controllers\Api\Client;
 
+use Pterodactyl\Models\Node;
 use Pterodactyl\Models\Server;
 use Pterodactyl\Models\Permission;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -38,6 +39,13 @@ class ClientController extends ClientApiController
             'description',
             'external_id',
             AllowedFilter::custom('*', new MultiFieldServerFilter()),
+            AllowedFilter::callback('node', function ($query, $value) {
+                if (!empty($value)) {
+                    $query->whereHas('node', function ($q) use ($value) {
+                        $q->where('name', $value);
+                    });
+                }
+            }),
         ]);
 
         $type = $request->input('type');
@@ -63,7 +71,19 @@ class ClientController extends ClientApiController
 
         $servers = $builder->paginate(min($request->query('per_page', 50), 100))->appends($request->query());
 
-        return $this->fractal->transformWith($transformer)->collection($servers)->toArray();
+        $response = $this->fractal->transformWith($transformer)->collection($servers)->toArray();
+
+        if ($user->root_admin) {
+            $response['meta']['nodes'] = Node::query()->orderBy('name')->pluck('name')->all();
+        } else {
+            $response['meta']['nodes'] = Node::query()
+                ->whereIn('id', $user->accessibleServers()->pluck('node_id')->unique())
+                ->orderBy('name')
+                ->pluck('name')
+                ->all();
+        }
+
+        return $response;
     }
 
     /**
