@@ -26,11 +26,11 @@ class AdminUserFilter implements Filter
 
             $driver = $query->getConnection()->getDriverName();
             if ($driver === 'sqlite') {
-                $concat = 'LOWER(COALESCE(users.name_first, "") || " " || COALESCE(users.name_last, "")) LIKE ?';
-                $concatRev = 'LOWER(COALESCE(users.name_last, "") || " " || COALESCE(users.name_first, "")) LIKE ?';
+                $concat = "LOWER(COALESCE(users.name_first, '') || ' ' || COALESCE(users.name_last, '')) LIKE ?";
+                $concatRev = "LOWER(COALESCE(users.name_last, '') || ' ' || COALESCE(users.name_first, '')) LIKE ?";
             } else {
-                $concat = 'LOWER(CONCAT(COALESCE(users.name_first, ""), " ", COALESCE(users.name_last, ""))) LIKE ?';
-                $concatRev = 'LOWER(CONCAT(COALESCE(users.name_last, ""), " ", COALESCE(users.name_first, ""))) LIKE ?';
+                $concat = "LOWER(CONCAT(COALESCE(users.name_first, ''), ' ', COALESCE(users.name_last, ''))) LIKE ?";
+                $concatRev = "LOWER(CONCAT(COALESCE(users.name_last, ''), ' ', COALESCE(users.name_first, ''))) LIKE ?";
             }
 
             $builder->orWhereRaw($concat, ["%$value%"])

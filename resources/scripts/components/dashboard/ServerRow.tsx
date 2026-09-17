@@ -93,22 +93,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     <FontAwesomeIcon icon={faServer} />
                 </div>
                 <div>
-                    <div css={tw`flex items-center gap-2`}>
-                        <p css={tw`text-lg break-words font-extrabold`} style={{ color: 'var(--neo-text)' }}>{server.name}</p>
-                        {!!server.node && (
-                            <span
-                                css={tw`text-xs px-1.5 py-0.5 rounded font-mono font-bold uppercase`}
-                                style={{
-                                    backgroundColor: 'var(--neo-surface-light)',
-                                    color: 'var(--neo-text)',
-                                    border: '1.5px solid #000000',
-                                    boxShadow: '1.5px 1.5px 0px #000000',
-                                }}
-                            >
-                                {server.node}
-                            </span>
-                        )}
-                    </div>
+                    <p css={tw`text-lg break-words font-extrabold`} style={{ color: 'var(--neo-text)' }}>{server.name}</p>
                     {!!server.description && (
                         <p css={tw`text-sm break-words line-clamp-2`} style={{ color: 'var(--neo-text-muted)' }}>{server.description}</p>
                     )}

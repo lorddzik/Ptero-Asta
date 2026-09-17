@@ -37,6 +37,7 @@
                             <th>Server Name</th>
                             <th>UUID</th>
                             <th>Owner</th>
+                            <th>Client Name</th>
                             <th>Node</th>
                             <th>Connection</th>
                             <th></th>
@@ -47,6 +48,7 @@
                                 <td><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></td>
                                 <td><code title="{{ $server->uuid }}">{{ $server->uuid }}</code></td>
                                 <td><a href="{{ route('admin.users.view', $server->user->id ?? 0) }}">{{ $server->user->username ?? 'Unknown' }}</a></td>
+                                <td>{{ $server->user ? (trim(($server->user->name_first ?? '') . ' ' . ($server->user->name_last ?? '')) ?: '-') : 'N/A' }}</td>
                                 <td>
                                     @if($server->node)
                                         <a href="{{ route('admin.nodes.view', $server->node->id) }}">{{ $server->node->name }}</a>

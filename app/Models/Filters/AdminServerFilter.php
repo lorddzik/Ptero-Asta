@@ -22,15 +22,29 @@ class AdminServerFilter implements Filter
             ->select('servers.*')
             ->leftJoin('users', 'users.id', '=', 'servers.owner_id')
             ->leftJoin('nodes', 'nodes.id', '=', 'servers.node_id')
-            ->where(function (Builder $builder) use ($value) {
+            ->where(function (Builder $builder) use ($value, $query) {
                 $builder->where('servers.uuid', $value)
                     ->orWhere('servers.uuid', 'LIKE', "$value%")
                     ->orWhere('servers.uuidShort', $value)
                     ->orWhere('servers.external_id', $value)
                     ->orWhereRaw('LOWER(users.username) LIKE ?', ["%$value%"])
-                    ->orWhereRaw('LOWER(users.email) LIKE ?', ["$value%"])
+                    ->orWhereRaw('LOWER(users.email) LIKE ?', ["%$value%"])
+                    ->orWhereRaw('LOWER(users.name_first) LIKE ?', ["%$value%"])
+                    ->orWhereRaw('LOWER(users.name_last) LIKE ?', ["%$value%"])
                     ->orWhereRaw('LOWER(servers.name) LIKE ?', ["%$value%"])
                     ->orWhereRaw('LOWER(nodes.name) LIKE ?', ["%$value%"]);
+
+                $driver = $query->getConnection()->getDriverName();
+                if ($driver === 'sqlite') {
+                    $concat = "LOWER(COALESCE(users.name_first, '') || ' ' || COALESCE(users.name_last, '')) LIKE ?";
+                    $concatRev = "LOWER(COALESCE(users.name_last, '') || ' ' || COALESCE(users.name_first, '')) LIKE ?";
+                } else {
+                    $concat = "LOWER(CONCAT(COALESCE(users.name_first, ''), ' ', COALESCE(users.name_last, ''))) LIKE ?";
+                    $concatRev = "LOWER(CONCAT(COALESCE(users.name_last, ''), ' ', COALESCE(users.name_first, ''))) LIKE ?";
+                }
+
+                $builder->orWhereRaw($concat, ["%$value%"])
+                    ->orWhereRaw($concatRev, ["%$value%"]);
             })
             ->groupBy('servers.id');
     }
