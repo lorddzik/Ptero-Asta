@@ -117,6 +117,20 @@
                         </div>
                         <p class="text-muted small">If the node is marked as 'Under Maintenance' users won't be able to access servers that are on this node.</p>
                     </div>
+                    <div class="form-group col-xs-12">
+                        <label class="form-label"><span class="label label-info"><i class="fa fa-globe"></i></span> Allow HTTP / Web Access</label>
+                        <div>
+                            <div class="radio radio-success radio-inline">
+                                <input type="radio" id="pHTTPTrue" value="1" name="allow_http" {{ (old('allow_http', $node->allow_http ?? true) == true) ? 'checked' : '' }}>
+                                <label for="pHTTPTrue"> Enable HTTP (Izinkan Akses Web / API HTTP) </label>
+                            </div>
+                            <div class="radio radio-danger radio-inline">
+                                <input type="radio" id="pHTTPFalse" value="0" name="allow_http" {{ (old('allow_http', $node->allow_http ?? true) == false) ? 'checked' : '' }}>
+                                <label for="pHTTPFalse"> Disable HTTP (Blokir Akses Web / API HTTP) </label>
+                            </div>
+                        </div>
+                        <p class="text-muted small">Jika dinonaktifkan, server pada node ini tidak diperbolehkan melayani akses web / HTTP API dari luar (cocok untuk node khusus bot/worker/database).</p>
+                    </div>
                 </div>
             </div>
         </div>

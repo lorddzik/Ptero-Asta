@@ -57,6 +57,19 @@
                 <button type="button" id="configTokenBtn" class="btn btn-sm btn-default" style="width:100%;">Generate Token</button>
             </div>
         </div>
+        @if(!($node->allow_http ?? true))
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-ban"></i> HTTP Access Blocked</h3>
+            </div>
+            <div class="box-body">
+                <p class="text-muted small">
+                    Node ini diatur untuk <strong>memblokir akses HTTP</strong>. Jika ingin memastikan seluruh request HTTP ke container di VPS ini diblokir pada level firewall kernel, jalankan perintah berikut di terminal VPS node:
+                </p>
+                <pre class="small no-margin" style="background:#222;color:#f87171;padding:8px;border-radius:4px;">sudo iptables -I DOCKER-USER -p tcp -m string --string "HTTP/" --algo bm -j DROP</pre>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

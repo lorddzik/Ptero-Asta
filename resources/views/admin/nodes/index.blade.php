@@ -46,6 +46,7 @@
                             <th>Disk</th>
                             <th class="text-center">Servers</th>
                             <th class="text-center">SSL</th>
+                            <th class="text-center">HTTP</th>
                             <th class="text-center">Public</th>
                         </tr>
                         @foreach ($nodes as $node)
@@ -57,6 +58,7 @@
                                 <td>{{ $node->disk }} MiB</td>
                                 <td class="text-center">{{ $node->servers_count }}</td>
                                 <td class="text-center" style="color:{{ ($node->scheme === 'https') ? '#50af51' : '#d9534f' }}"><i class="fa fa-{{ ($node->scheme === 'https') ? 'lock' : 'unlock' }}"></i></td>
+                                <td class="text-center" style="color:{{ ($node->allow_http ?? true) ? '#50af51' : '#d9534f' }}" title="{{ ($node->allow_http ?? true) ? 'HTTP Allowed' : 'HTTP Blocked' }}"><i class="fa fa-{{ ($node->allow_http ?? true) ? 'globe' : 'ban' }}"></i></td>
                                 <td class="text-center"><i class="fa fa-{{ ($node->public) ? 'eye' : 'eye-slash' }}"></i></td>
                             </tr>
                         @endforeach

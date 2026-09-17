@@ -108,6 +108,20 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                 {server.node}
                             </span>
                         )}
+                        {server.isNodeHttpAllowed === false && (
+                            <span
+                                css={tw`text-[10px] px-1.5 py-0.5 rounded font-bold uppercase`}
+                                style={{
+                                    backgroundColor: '#ef4444',
+                                    color: '#ffffff',
+                                    border: '1.5px solid #000000',
+                                    boxShadow: '1.5px 1.5px 0px #000000',
+                                }}
+                                title={'Akses HTTP / Web diblokir pada node ini'}
+                            >
+                                NON-HTTP
+                            </span>
+                        )}
                     </div>
                     {!!server.description && (
                         <p css={tw`text-sm break-words line-clamp-2`} style={{ color: 'var(--neo-text-muted)' }}>{server.description}</p>

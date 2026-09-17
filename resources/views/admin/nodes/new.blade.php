@@ -91,6 +91,20 @@
                         </div>
                         <p class="text-muted small">If you are running the daemon behind a proxy such as Cloudflare, select this to have the daemon skip looking for certificates on boot.</p>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label"><span class="label label-info"><i class="fa fa-globe"></i></span> Allow HTTP / Web Access</label>
+                        <div>
+                            <div class="radio radio-success radio-inline">
+                                <input type="radio" id="pHTTPTrue" value="1" name="allow_http" {{ (old('allow_http', '1') === '1') ? 'checked' : '' }}>
+                                <label for="pHTTPTrue"> Enable HTTP (Izinkan Akses Web / API HTTP) </label>
+                            </div>
+                            <div class="radio radio-danger radio-inline">
+                                <input type="radio" id="pHTTPFalse" value="0" name="allow_http" {{ (old('allow_http') === '0') ? 'checked' : '' }}>
+                                <label for="pHTTPFalse"> Disable HTTP (Blokir Akses Web / API HTTP) </label>
+                            </div>
+                        </div>
+                        <p class="text-muted small">Jika dinonaktifkan, server pada node ini tidak diperbolehkan melayani akses web / HTTP API dari luar (cocok untuk node khusus bot/worker/database).</p>
+                    </div>
                 </div>
             </div>
         </div>

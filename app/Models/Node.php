@@ -81,6 +81,7 @@ class Node extends Model implements Identifiable
         'behind_proxy' => 'boolean',
         'public' => 'boolean',
         'maintenance_mode' => 'boolean',
+        'allow_http' => 'boolean',
     ];
 
     /**
@@ -92,7 +93,7 @@ class Node extends Model implements Identifiable
         'memory', 'memory_overallocate', 'disk',
         'disk_overallocate', 'upload_size', 'daemonBase',
         'daemonSFTP', 'daemonListen',
-        'description', 'maintenance_mode',
+        'description', 'maintenance_mode', 'allow_http',
     ];
 
     public static array $validationRules = [
@@ -103,6 +104,7 @@ class Node extends Model implements Identifiable
         'fqdn' => 'required|string',
         'scheme' => 'required',
         'behind_proxy' => 'boolean',
+        'allow_http' => 'sometimes|boolean',
         'memory' => 'required|numeric|min:1',
         'memory_overallocate' => 'required|numeric|min:-1',
         'disk' => 'required|numeric|min:1',
