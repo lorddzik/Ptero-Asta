@@ -9,6 +9,21 @@ Route::get('/system-stats', [Admin\BaseController::class, 'systemStats'])->name(
 
 /*
 |--------------------------------------------------------------------------
+| VPS Cleaner & Optimizer Routes
+|--------------------------------------------------------------------------
+|
+| Endpoint: /admin/cleaner
+|
+*/
+Route::group(['prefix' => 'cleaner'], function () {
+    Route::get('/', [Admin\CleanerController::class, 'index'])->name('admin.cleaner');
+    Route::get('/scan', [Admin\CleanerController::class, 'scan'])->name('admin.cleaner.scan');
+    Route::post('/purge', [Admin\CleanerController::class, 'executeClean'])->name('admin.cleaner.purge');
+    Route::post('/reset', [Admin\CleanerController::class, 'executeReset'])->name('admin.cleaner.reset');
+});
+
+/*
+|--------------------------------------------------------------------------
 | Location Controller Routes
 |--------------------------------------------------------------------------
 |

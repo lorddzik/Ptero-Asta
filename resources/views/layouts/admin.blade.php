@@ -117,6 +117,11 @@
                                 <i class="fa fa-gamepad"></i> <span>Application API</span>
                             </a>
                         </li>
+                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.cleaner') ?: 'active' }}">
+                            <a href="{{ route('admin.cleaner')}}">
+                                <i class="fa fa-magic"></i> <span>VPS Optimizer</span>
+                            </a>
+                        </li>
                         <li class="header">MANAGEMENT</li>
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.databases') ?: 'active' }}">
                             <a href="{{ route('admin.databases') }}">

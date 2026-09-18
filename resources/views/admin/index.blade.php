@@ -17,6 +17,9 @@
                 <span class="label label-success" id="realtimeStatusBadge" style="font-size:11px;padding:5px 8px;border:1.5px solid #000;box-shadow:1.5px 1.5px 0 #000;">
                     <i class="fa fa-circle text-white animate-pulse"></i> LIVE
                 </span>
+                <a href="{{ route('admin.cleaner') }}" class="btn btn-sm" style="border:2px solid #000;box-shadow:2px 2px 0 #000;font-weight:800;background:#00D2FF;color:#000;">
+                    <i class="fa fa-magic"></i> VPS OPTIMIZER
+                </a>
                 <button type="button" id="btnRefreshStats" class="btn btn-sm btn-default" style="border:2px solid #000;box-shadow:2px 2px 0 #000;font-weight:800;">
                     <i class="fa fa-refresh"></i> REFRESH
                 </button>
@@ -369,6 +372,9 @@
                 </a>
                 <a href="{{ route('admin.servers') }}" class="btn btn-default" style="border:2px solid #000;box-shadow:2px 2px 0 #000;font-weight:800;">
                     <i class="fa fa-list"></i> Server List
+                </a>
+                <a href="{{ route('admin.cleaner') }}" class="btn" style="border:2px solid #000;box-shadow:2px 2px 0 #000;font-weight:800;background:#00D2FF;color:#000;">
+                    <i class="fa fa-magic"></i> VPS Optimizer & Reset
                 </a>
             </div>
         </div>
