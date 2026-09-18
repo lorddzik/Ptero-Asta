@@ -258,6 +258,7 @@ html.theme-light .server-row,
 html.theme-light [class*="StatusIndicatorBox"],
 html.theme-light [class*="GreyRowBox"],
 html.theme-light [class*="TitledGreyBox"],
+html.theme-light [class*="ContentBox"],
 html.theme-light [class*="stat_block"],
 html.theme-light [class*="StatBlock"],
 html.theme-light [class*="FileManagerStatus"] > div,
@@ -266,14 +267,6 @@ html.theme-light [class*="MassActionsBar"] {
   color: #0B0F17 !important;
   border: 2.5px solid #000000 !important;
   box-shadow: 4px 4px 0px #000000 !important;
-}
-
-/* ContentBox outer container should always remain transparent (only inner card is styled) */
-[class*="ContentBox"],
-html.theme-light [class*="ContentBox"] {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 html.theme-light [class*="GreyRowBox"]:hover {
