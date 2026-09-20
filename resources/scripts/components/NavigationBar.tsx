@@ -73,7 +73,7 @@ export default () => {
     };
 
     return (
-        <div className={'w-full border-b-[2.5px] border-black shadow-[0_4px_0_#000000] z-30 sticky top-0 overflow-x-auto'} style={{ backgroundColor: 'var(--neo-surface)' }}>
+        <div className={'w-full border-b-[2.5px] border-black shadow-[0_4px_0_#000000] z-50 sticky top-0 overflow-x-auto'} style={{ backgroundColor: 'var(--neo-surface)' }}>
             <SpinnerOverlay visible={isLoggingOut} />
             <div className={'mx-auto w-full flex items-center h-[3.75rem] max-w-[1200px] px-2'}>
                 <div id={'logo'} className={'flex-1 flex items-center'}>
