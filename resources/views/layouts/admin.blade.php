@@ -73,6 +73,7 @@
                                     <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</span>
                                 </a>
+                            </li>
                             <li>
                                 <a href="javascript:void(0);" id="adminThemeToggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Theme" onclick="
                                     var next = localStorage.getItem('asta_theme') === 'light' ? 'dark' : 'light';

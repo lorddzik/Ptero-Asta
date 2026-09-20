@@ -452,11 +452,40 @@ html.theme-light .skin-blue .main-header .navbar {
   border-bottom: 2.5px solid #000000 !important;
 }
 
+html.theme-light .skin-blue .main-header .navbar .nav > li > a,
+html.theme-light .skin-blue .main-header .navbar .navbar-custom-menu > .navbar-nav > li > a,
+html.theme-light .skin-blue .main-header .navbar .user-menu > a,
+html.theme-light .skin-blue .main-header .navbar .user-menu > a span,
+html.theme-light .skin-blue .main-header .navbar .nav > li > a i,
+html.theme-light .skin-blue .main-header .navbar .sidebar-toggle,
+html.theme-light .skin-blue .main-header .navbar .sidebar-toggle .icon-bar {
+  color: #0B0F17 !important;
+  font-weight: 700 !important;
+}
+
+html.theme-light .skin-blue .main-header .navbar .sidebar-toggle .icon-bar {
+  background-color: #0B0F17 !important;
+}
+
+html.theme-light .skin-blue .main-header .navbar .nav > li > a:hover,
+html.theme-light .skin-blue .main-header .navbar .navbar-custom-menu > .navbar-nav > li > a:hover,
+html.theme-light .skin-blue .main-header .navbar .user-menu > a:hover,
+html.theme-light .skin-blue .main-header .navbar .user-menu > a:hover span,
+html.theme-light .skin-blue .main-header .navbar .nav > li > a:hover i,
+html.theme-light .skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background-color: #F1F5F9 !important;
+  color: #00A3C4 !important;
+}
+
 html.theme-light .skin-blue .main-header .logo {
   background-color: #FFFFFF !important;
   color: #000000 !important;
   border-bottom: 2.5px solid #000000 !important;
   border-right: 2.5px solid #000000 !important;
+}
+
+html.theme-light .skin-blue .main-header .logo span {
+  color: #0B0F17 !important;
 }
 
 html.theme-light .skin-blue .sidebar-menu > li.header {
@@ -1155,6 +1184,24 @@ html.theme-light p.font-mono, html.theme-light pre {
   background-color: var(--neo-surface) !important;
   color: var(--neo-text) !important;
   border-bottom: 2.5px solid #000000 !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a,
+.skin-blue .main-header .navbar .navbar-custom-menu > .navbar-nav > li > a {
+  color: var(--neo-text) !important;
+  font-weight: 700 !important;
+  transition: all 0.15s ease !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .navbar-custom-menu > .navbar-nav > li > a:hover {
+  background-color: var(--neo-surface-hover) !important;
+  color: var(--asta-cyan) !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a i,
+.skin-blue .main-header .navbar .nav > li > a span {
+  color: inherit !important;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
