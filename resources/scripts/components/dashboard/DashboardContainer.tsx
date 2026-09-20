@@ -90,7 +90,7 @@ export default () => {
                             css={tw`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all duration-150 select-none cursor-pointer`}
                             style={{
                                 backgroundColor: selectedNode ? 'var(--neo-primary)' : 'var(--neo-surface)',
-                                color: selectedNode ? '#ffffff' : 'var(--neo-text)',
+                                color: selectedNode ? '#000000' : 'var(--neo-text)',
                                 border: '2px solid #000000',
                                 boxShadow: '2px 2px 0px #000000',
                             }}

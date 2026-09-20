@@ -7,7 +7,7 @@
 @section('content-header')
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div>
-            <h1 style="margin:0;font-weight:800;color:var(--neo-text,#FFFFFF);text-shadow:2px 2px 0px #000000;">
+            <h1 style="margin:0;font-weight:800;color:var(--neo-text,#FFFFFF);">
                 <i class="fa fa-magic text-aqua"></i> VPS OPTIMIZER & FACTORY RESET
                 <small style="color:var(--neo-text-muted,#94A3B8);font-weight:600;font-size:13px;display:block;margin-top:4px;">
                     Deep Cache Purge, RAM Optimization, & 1-Click Fresh Install Reset
@@ -37,6 +37,10 @@
     background: #1c1417;
     border: 2.5px solid #EF4444;
     box-shadow: 4px 4px 0px #000000;
+}
+html.theme-light .opt-card-danger {
+    background: #FFF1F2 !important;
+    border: 2.5px solid #DC2626 !important;
 }
 .opt-title {
     font-size: 17px;
@@ -71,15 +75,15 @@
 }
 .opt-btn-cyan {
     background: var(--asta-cyan, #00D2FF);
-    color: #000000;
+    color: #000000 !important;
 }
 .opt-btn-danger {
     background: #EF4444;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 .opt-btn-danger:disabled {
-    background: #4B5563;
-    color: #9CA3AF;
+    background: #4B5563 !important;
+    color: #9CA3AF !important;
     cursor: not-allowed;
     transform: none;
     box-shadow: 2px 2px 0px #000000;
@@ -92,15 +96,24 @@
     border-radius: 6px;
     margin-bottom: 12px;
 }
+.opt-stat-server {
+    font-size: 20px;
+    font-weight: 900;
+    color: #FACC15;
+    margin-top: 2px;
+}
+html.theme-light .opt-stat-server {
+    color: #D97706 !important;
+}
 .terminal-box {
-    background: #0B0E14;
-    border: 2.5px solid #000000;
-    box-shadow: 4px 4px 0px #000000;
-    border-radius: 6px;
-    padding: 16px;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 12px;
-    color: #10B981;
+    background: #0B0E14 !important;
+    border: 2.5px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    border-radius: 6px !important;
+    padding: 16px !important;
+    font-family: 'Consolas', 'Courier New', monospace !important;
+    font-size: 12px !important;
+    color: #10B981 !important;
     min-height: 160px;
     max-height: 320px;
     overflow-y: auto;
@@ -117,6 +130,15 @@
     border-radius: 6px;
     margin-bottom: 8px;
 }
+.waste-item-title {
+    color: var(--neo-text, #FFFFFF);
+    font-size: 13px;
+    font-weight: 700;
+}
+.waste-item-sub {
+    font-size: 11px;
+    color: var(--neo-text-muted, #94A3B8);
+}
 .waste-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -125,6 +147,122 @@
     border-radius: 4px;
     border: 1.5px solid #000000;
     box-shadow: 1.5px 1.5px 0px #000000;
+}
+.opt-total-box {
+    margin-top: 14px;
+    background: var(--neo-bg, #0D1117);
+    border: 2px solid #000000;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.opt-total-title {
+    font-weight: 800;
+    color: var(--neo-text, #FFFFFF);
+}
+.opt-danger-title {
+    color: #EF4444;
+}
+html.theme-light .opt-danger-title {
+    color: #DC2626 !important;
+}
+.opt-danger-desc {
+    color: #F87171;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+html.theme-light .opt-danger-desc {
+    color: #991B1B !important;
+}
+.opt-danger-inner {
+    background: #000000;
+    border: 2px solid #EF4444;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+html.theme-light .opt-danger-inner {
+    background: #FFFFFF !important;
+    border: 2px solid #DC2626 !important;
+}
+.opt-danger-wipe-title {
+    color: #EF4444;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+html.theme-light .opt-danger-wipe-title {
+    color: #DC2626 !important;
+}
+.opt-danger-wipe-text {
+    color: #FCA5A5;
+    line-height: 1.6;
+}
+html.theme-light .opt-danger-wipe-text {
+    color: #7F1D1D !important;
+}
+.opt-danger-wipe-text strong {
+    color: inherit !important;
+}
+.opt-danger-keep-title {
+    color: #10B981;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+html.theme-light .opt-danger-keep-title {
+    color: #059669 !important;
+}
+.opt-danger-keep-text {
+    color: #A7F3D0;
+    line-height: 1.6;
+}
+html.theme-light .opt-danger-keep-text {
+    color: #065F46 !important;
+}
+.opt-danger-keep-text strong {
+    color: inherit !important;
+}
+.opt-danger-chk-label {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+html.theme-light .opt-danger-chk-label {
+    color: #0B0F17 !important;
+}
+.opt-danger-input {
+    background: #000000 !important;
+    border: 2px solid #EF4444 !important;
+    color: #FFFFFF !important;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 2px 2px 0px #000000;
+}
+html.theme-light .opt-danger-input {
+    background: #FFFFFF !important;
+    border: 2px solid #DC2626 !important;
+    color: #0B0F17 !important;
+}
+.opt-danger-badge-sample {
+    background: #000000;
+    padding: 2px 8px;
+    border: 1px solid #EF4444;
+    border-radius: 4px;
+    user-select: all;
+    color: #EF4444;
+}
+html.theme-light .opt-danger-badge-sample {
+    background: #FEE2E2 !important;
+    border: 1.5px solid #DC2626 !important;
+    color: #991B1B !important;
 }
 </style>
 
@@ -157,7 +295,7 @@
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="metric-pill">
             <div style="font-size:11px;font-weight:800;color:var(--neo-text-muted,#94A3B8);text-transform:uppercase;">ACTIVE SERVERS</div>
-            <div style="font-size:20px;font-weight:900;color:#FACC15;margin-top:2px;">
+            <div class="opt-stat-server">
                 {{ $totalServers }} Server
             </div>
             <div style="font-size:11px;color:var(--neo-text-muted,#94A3B8);margin-top:8px;">
@@ -196,44 +334,44 @@
             <div id="wasteList">
                 <div class="waste-item">
                     <div>
-                        <strong style="color:#FFFFFF;font-size:13px;"><i class="fa fa-file-text-o text-yellow"></i> Docker Container Logs</strong>
-                        <div style="font-size:11px;color:#94A3B8;">File log output container (*-json.log)</div>
+                        <strong class="waste-item-title"><i class="fa fa-file-text-o text-yellow"></i> Docker Container Logs</strong>
+                        <div class="waste-item-sub">File log output container (*-json.log)</div>
                     </div>
                     <span class="waste-badge" id="badge-docker-logs" style="background:#FACC15;color:#000000;">Memuat...</span>
                 </div>
                 <div class="waste-item">
                     <div>
-                        <strong style="color:#FFFFFF;font-size:13px;"><i class="fa fa-book text-aqua"></i> Linux Systemd Journal Logs</strong>
-                        <div style="font-size:11px;color:#94A3B8;">Log sistem operasi Linux di /var/log/journal</div>
+                        <strong class="waste-item-title"><i class="fa fa-book text-aqua"></i> Linux Systemd Journal Logs</strong>
+                        <div class="waste-item-sub">Log sistem operasi Linux di /var/log/journal</div>
                     </div>
                     <span class="waste-badge" id="badge-journal" style="background:#00D2FF;color:#000000;">Memuat...</span>
                 </div>
                 <div class="waste-item">
                     <div>
-                        <strong style="color:#FFFFFF;font-size:13px;"><i class="fa fa-archive text-purple"></i> APT Package Archive Cache</strong>
-                        <div style="font-size:11px;color:#94A3B8;">Arsip file paket .deb bekas instalasi</div>
+                        <strong class="waste-item-title"><i class="fa fa-archive text-purple"></i> APT Package Archive Cache</strong>
+                        <div class="waste-item-sub">Arsip file paket .deb bekas instalasi</div>
                     </div>
                     <span class="waste-badge" id="badge-apt" style="background:#A855F7;color:#FFFFFF;">Memuat...</span>
                 </div>
                 <div class="waste-item">
                     <div>
-                        <strong style="color:#FFFFFF;font-size:13px;"><i class="fa fa-cubes text-green"></i> Panel Cache & Framework Logs</strong>
-                        <div style="font-size:11px;color:#94A3B8;">Cache Blade, routes, configs, dan laravel-*.log lama</div>
+                        <strong class="waste-item-title"><i class="fa fa-cubes text-green"></i> Panel Cache & Framework Logs</strong>
+                        <div class="waste-item-sub">Cache Blade, routes, configs, dan laravel-*.log lama</div>
                     </div>
                     <span class="waste-badge" id="badge-panel" style="background:#10B981;color:#FFFFFF;">Memuat...</span>
                 </div>
                 <div class="waste-item">
                     <div>
-                        <strong style="color:#FFFFFF;font-size:13px;"><i class="fa fa-dashboard text-danger"></i> RAM PageCache & Kernel Buffers</strong>
-                        <div style="font-size:11px;color:#94A3B8;">Memori RAM yang tersandera cache I/O filesystem</div>
+                        <strong class="waste-item-title"><i class="fa fa-dashboard text-danger"></i> RAM PageCache & Kernel Buffers</strong>
+                        <div class="waste-item-sub">Memori RAM yang tersandera cache I/O filesystem</div>
                     </div>
                     <span class="waste-badge" id="badge-ram" style="background:#EF4444;color:#FFFFFF;">Memuat...</span>
                 </div>
             </div>
 
-            <div style="margin-top:14px;background:#0D1117;border:2px solid #000000;border-radius:6px;padding:12px;display:flex;align-items:center;justify-content:space-between;">
-                <span style="font-weight:800;color:var(--neo-text,#FFFFFF);">TOTAL POTENSI SAMPAH:</span>
-                <span id="totalJunkFormatted" style="font-weight:900;font-size:18px;color:var(--asta-cyan,#00D2FF);text-shadow:1.5px 1.5px 0px #000000;">0 MB</span>
+            <div class="opt-total-box">
+                <span class="opt-total-title">TOTAL POTENSI SAMPAH:</span>
+                <span id="totalJunkFormatted" style="font-weight:900;font-size:18px;color:var(--asta-cyan,#00D2FF);">0 MB</span>
             </div>
         </div>
 
@@ -265,23 +403,23 @@
     <div class="col-md-6 col-xs-12">
         <!-- Mode 2: Factory Reset VPS (Fresh State) -->
         <div class="opt-card opt-card-danger">
-            <div class="opt-title" style="color:#EF4444;">
+            <div class="opt-title opt-danger-title">
                 <i class="fa fa-exclamation-triangle"></i> MODE 2: FACTORY RESET (FRESH INSTALL STATE)
             </div>
-            <p style="color:#F87171;font-size:12px;font-weight:700;margin-bottom:12px;">
+            <p class="opt-danger-desc">
                 MENGEMBALIKAN PANEL KE KONDISI BARU SELESAI DI-INSTALL. SEMUA SERVER CLIENT & USER AKAN DIHAPUS TOTAL!
             </p>
 
-            <div style="background:#000000;border:2px solid #EF4444;border-radius:6px;padding:12px;margin-bottom:16px;font-size:12px;">
-                <div style="color:#EF4444;font-weight:800;margin-bottom:6px;">DATA YANG DIHAPUS TOTAL:</div>
-                <div style="color:#FCA5A5;line-height:1.6;">
+            <div class="opt-danger-inner">
+                <div class="opt-danger-wipe-title">DATA YANG DIHAPUS TOTAL:</div>
+                <div class="opt-danger-wipe-text">
                     • Seluruh <strong>{{ $totalServers }} Server Client</strong> (database, container, dan file disk di /var/lib/pterodactyl/volumes/*)<br>
                     • Seluruh <strong>{{ $totalUsers }} User Client</strong> (non-admin)<br>
                     • Seluruh container Docker yang tersisa & volume Docker yang menggantung
                 </div>
 
-                <div style="color:#10B981;font-weight:800;margin-top:10px;margin-bottom:6px;">DATA YANG DIPERTAHANKAN (TIDAK HILANG):</div>
-                <div style="color:#A7F3D0;line-height:1.6;">
+                <div class="opt-danger-keep-title">DATA YANG DIPERTAHANKAN (TIDAK HILANG):</div>
+                <div class="opt-danger-keep-text">
                     • Source code Panel Pterodactyl, Nginx, SSL Cert, dan PHP<br>
                     • Akun <strong>Root Administrator</strong> (login kamu tetap aktif)<br>
                     • Konfigurasi Nodes, Database Host, Alokasi Port, dan Nests / Eggs
@@ -289,21 +427,21 @@
             </div>
 
             <div style="margin-bottom:14px;">
-                <label style="color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer;">
+                <label class="opt-danger-chk-label">
                     <input type="checkbox" id="checkConfirm1" style="transform:scale(1.2);">
                     Saya paham seluruh server client dan file di disk akan dihapus permanen.
                 </label>
-                <label style="color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:6px;">
+                <label class="opt-danger-chk-label" style="margin-top:6px;">
                     <input type="checkbox" id="checkConfirm2" style="transform:scale(1.2);">
                     Saya ingin mengembalikan panel & VPS ke kondisi fresh install seperti baru.
                 </label>
             </div>
 
             <div style="margin-bottom:16px;">
-                <label style="color:#EF4444;font-size:12px;font-weight:800;text-transform:uppercase;">
-                    Ketik teks <span style="background:#000000;padding:2px 8px;border:1px solid #EF4444;border-radius:4px;user-select:all;">RESET-ASTA</span> untuk membuka tombol:
+                <label class="opt-danger-title" style="font-size:12px;font-weight:800;text-transform:uppercase;">
+                    Ketik teks <span class="opt-danger-badge-sample">RESET-ASTA</span> untuk membuka tombol:
                 </label>
-                <input type="text" id="inputConfirmText" class="form-control" placeholder="Ketik RESET-ASTA di sini..." style="background:#000000;border:2px solid #EF4444;color:#FFFFFF;font-weight:800;font-size:14px;box-shadow:2px 2px 0px #000000;">
+                <input type="text" id="inputConfirmText" class="form-control opt-danger-input" placeholder="Ketik RESET-ASTA di sini...">
             </div>
 
             <button type="button" id="btnRunReset" class="opt-btn opt-btn-danger" style="width:100%;font-size:14px;padding:12px;" disabled>

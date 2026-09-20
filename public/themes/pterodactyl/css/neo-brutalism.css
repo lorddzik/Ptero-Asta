@@ -30,6 +30,8 @@
   --asta-red: #EF4444;
   --asta-yellow: #FACC15;
   --asta-purple: #A855F7;
+  --neo-primary: #00D2FF;
+  --neo-primary-dark: #00A3C4;
 
   /* Typography */
   --neo-text: #FFFFFF;
@@ -49,6 +51,8 @@
   --neo-surface: #FFFFFF;
   --neo-surface-light: #E2E8F0;
   --neo-surface-hover: #F1F5F9;
+  --neo-primary: #00D2FF;
+  --neo-primary-dark: #00A3C4;
 
   --neo-border-color: #000000;
   --neo-border-width: 2.5px;
@@ -175,8 +179,8 @@ html.theme-light th {
   color: #0B0F17 !important;
 }
 
-html.theme-light p,
-html.theme-light label,
+html.theme-light p:not([class*="btn"]):not(.btn),
+html.theme-light label:not([class*="btn"]):not(.btn),
 html.theme-light td,
 html.theme-light li,
 html.theme-light dd,
@@ -194,7 +198,7 @@ html.theme-light .text-gray-50,
 html.theme-light .text-gray-100,
 html.theme-light .text-neutral-50,
 html.theme-light .text-neutral-100,
-html.theme-light .text-white {
+html.theme-light .text-white:not(.btn):not([class*="btn"]):not([class*="Button"]):not(.label-danger):not(.badge-danger):not(.label-primary):not([class*="bg-red-"]):not(.keep-white) {
   color: #0B0F17 !important;
 }
 
@@ -228,16 +232,49 @@ html.theme-light [role="dialog"] h3 {
   color: #0B0F17 !important;
 }
 
+/* Preserve crisp white text on danger/red badges, red buttons, and dark statuses */
+html.theme-light .btn-danger,
+html.theme-light .btn-danger *,
+html.theme-light .label-danger,
+html.theme-light .label-danger *,
+html.theme-light .badge-danger,
+html.theme-light .badge-danger *,
+html.theme-light [class*="bg-red-"] *,
+html.theme-light .label-success .text-white,
+html.theme-light .label-danger .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Primary/cyan elements have black text for AAA contrast */
+html.theme-light .btn-primary,
+html.theme-light .btn-primary *,
+html.theme-light .label-primary,
+html.theme-light .label-primary * {
+  color: #000000 !important;
+}
+
 /* Exclude terminal, xterm, and codemirror code blocks from light text overrides */
 html.theme-light .terminal,
 html.theme-light .terminal *,
 html.theme-light [class*="terminal"],
 html.theme-light [class*="terminal"] *,
+html.theme-light .terminal-box,
+html.theme-light .terminal-box *,
 html.theme-light .xterm,
 html.theme-light .xterm *,
 html.theme-light .CodeMirror,
 html.theme-light .CodeMirror * {
   color: inherit !important;
+}
+
+html.theme-light .terminal-box {
+  background-color: #0B0E14 !important;
+  color: #10B981 !important;
+}
+
+html.theme-light #nodeScript {
+  background-color: #0B0E14 !important;
+  color: #00D2FF !important;
 }
 
 /* Light Mode Borders */
@@ -444,8 +481,16 @@ html.theme-light .right-side {
   background-color: #F0F4F8 !important;
 }
 
-html.theme-light .content-header > h1 {
+html.theme-light .content-header > h1,
+html.theme-light h1 {
   color: #0B0F17 !important;
+  text-shadow: none !important;
+}
+
+html.theme-light .content-header > h1 small,
+html.theme-light h1 small {
+  color: #475569 !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================

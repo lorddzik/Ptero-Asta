@@ -81,14 +81,17 @@ export default createGlobalStyle`
     html.theme-light h3,
     html.theme-light h4,
     html.theme-light h5,
-    html.theme-light h6,
-    html.theme-light strong,
-    html.theme-light b {
+    html.theme-light h6 {
         color: #0B0F17 !important;
     }
 
-    html.theme-light p,
-    html.theme-light label,
+    html.theme-light strong:not(button *):not([class*="Button"] *):not(.btn *):not(.label *):not([class*="bg-red-"] *),
+    html.theme-light b:not(button *):not([class*="Button"] *):not(.btn *):not(.label *):not([class*="bg-red-"] *) {
+        color: #0B0F17 !important;
+    }
+
+    html.theme-light p:not(button *):not([class*="Button"] *):not(.btn *):not(.label *):not([class*="bg-red-"] *),
+    html.theme-light label:not(button *):not([class*="Button"] *):not(.btn *):not(.label *):not([class*="bg-red-"] *),
     html.theme-light td,
     html.theme-light th,
     html.theme-light li,
@@ -100,6 +103,12 @@ export default createGlobalStyle`
     html.theme-light small,
     html.theme-light .input-help {
         color: #475569 !important;
+    }
+
+    /* Keep crisp white text in light mode for red/danger elements */
+    html.theme-light [class*="bg-red-"],
+    html.theme-light [class*="bg-red-"] * {
+        color: #FFFFFF !important;
     }
 
     form {
